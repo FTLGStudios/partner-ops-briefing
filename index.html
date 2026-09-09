@@ -18,6 +18,7 @@
     --slate: #34506E;
     --slate-tint: #E7EDF4;
     --good: #2E7D5B;
+    --good-tint: #E4F1EA;
     --code-bg: #ECEEF2;
   }
   @media (prefers-color-scheme: dark) {
@@ -33,6 +34,7 @@
       --slate: #9DB4D1;
       --slate-tint: #222B37;
       --good: #6FC79E;
+      --good-tint: #1E2E27;
       --code-bg: #262B34;
     }
   }
@@ -48,6 +50,7 @@
     --slate: #9DB4D1;
     --slate-tint: #222B37;
     --good: #6FC79E;
+    --good-tint: #1E2E27;
     --code-bg: #262B34;
   }
 
@@ -124,6 +127,7 @@
     margin: 30px 0 10px;
     text-wrap: balance;
   }
+  h4 { font-family: "Archivo", Arial, sans-serif; font-variation-settings: "wdth" 110; font-size: 15px; font-weight: 700; margin: 18px 0 8px; }
   p { margin: 0 0 16px; max-width: 66ch; }
   ul, ol { margin: 0 0 18px; padding-left: 22px; max-width: 66ch; }
   li { margin-bottom: 8px; }
@@ -141,8 +145,15 @@
   }
   .box.warn { border-left: 4px solid var(--accent); background: var(--tint); }
   .box.slate { border-left: 4px solid var(--slate); background: var(--slate-tint); }
+  .box.good { border-left: 4px solid var(--good); background: var(--good-tint); }
   .box .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0 0 8px; }
-  .box p:last-child, .box ul:last-child { margin-bottom: 0; }
+  .box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+
+  .say { border-left: 3px solid var(--accent); padding: 6px 0 6px 16px; margin: 0 0 16px; max-width: 66ch; font-style: italic; }
+  .say b { font-style: normal; font-family: "IBM Plex Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); display: block; margin-bottom: 4px; font-weight: 500; }
+  .gap { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .04em; color: var(--accent-ink); border: 1px dashed var(--accent); padding: 1px 7px; margin: 0 4px 4px 0; vertical-align: middle; font-style: normal; }
+  .yes { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em; color: var(--good); font-weight: 500; }
+  .part { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .06em; color: var(--accent-ink); font-weight: 500; }
 
   .eli5 {
     border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
@@ -158,6 +169,7 @@
   th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
   th { font-family: "IBM Plex Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 500; }
   td:first-child { font-weight: 600; white-space: nowrap; }
+  table.map td:first-child { white-space: normal; min-width: 180px; }
 
   .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 0 0 24px; }
   .fact { background: var(--surface); padding: 14px 16px; }
@@ -190,13 +202,15 @@
 
   .qa { margin: 0 0 14px; padding: 0 0 14px; border-bottom: 1px solid var(--line); max-width: 66ch; }
   .qa .q { font-weight: 600; margin: 0 0 6px; }
-  .qa .a { margin: 0; font-size: 15.5px; }
+  .qa .a { margin: 0 0 6px; font-size: 15.5px; }
+  .qa .a:last-child { margin-bottom: 0; }
   .qa .a .ref { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--accent); margin-left: 6px; white-space: nowrap; }
+  .qa .a.open { font-style: italic; }
 
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0 0 22px; }
   @media (max-width: 640px) { .two { grid-template-columns: 1fr; } }
   .two .box { margin: 0; }
-  .two h4 { margin: 0 0 10px; font-family: "Archivo", Arial, sans-serif; font-variation-settings: "wdth" 110; font-size: 15px; font-weight: 700; }
+  .two h4 { margin: 0 0 10px; }
   .two ul { margin: 0; padding-left: 18px; font-size: 15px; }
 
   dl.gloss { max-width: 66ch; margin: 0; }
@@ -221,47 +235,53 @@
       <li><a href="#s101"><span class="n">01</span>Partner Ops 101</a></li>
       <li><a href="#s102"><span class="n">02</span>Partner Ops 102</a></li>
       <li><a href="#mistral"><span class="n">03</span>Mistral, Sept 2026</a></li>
-      <li><a href="#job"><span class="n">04</span>The job at Mistral</a></li>
-      <li><a href="#problems"><span class="n">05</span>Hardest problems</a></li>
-      <li><a href="#portray"><span class="n">06</span>How to portray yourself</a></li>
-      <li><a href="#shapes"><span class="n">07</span>Story shapes</a></li>
-      <li><a href="#questions"><span class="n">08</span>Question bank</a></li>
-      <li><a href="#ninety"><span class="n">09</span>First 90 days</a></li>
-      <li><a href="#ask"><span class="n">10</span>Questions to ask</a></li>
-      <li><a href="#gloss"><span class="n">11</span>Glossary</a></li>
-      <li><a href="#sources"><span class="n">12</span>Sources</a></li>
+      <li><a href="#job"><span class="n">04</span>The req against your record</a></li>
+      <li><a href="#kamal"><span class="n">05</span>Kamal, and the room beyond him</a></li>
+      <li><a href="#problems"><span class="n">06</span>Hardest problems</a></li>
+      <li><a href="#portray"><span class="n">07</span>How to portray yourself</a></li>
+      <li><a href="#shapes"><span class="n">08</span>Your ten stories</a></li>
+      <li><a href="#questions"><span class="n">09</span>Question bank</a></li>
+      <li><a href="#ninety"><span class="n">10</span>First 90 days</a></li>
+      <li><a href="#ask"><span class="n">11</span>Questions to ask</a></li>
+      <li><a href="#gaps"><span class="n">12</span>Gaps and never-say</a></li>
+      <li><a href="#gloss"><span class="n">13</span>Glossary</a></li>
+      <li><a href="#sources"><span class="n">14</span>Sources</a></li>
     </ol>
   </nav>
 
   <main>
     <header class="masthead">
-      <p class="eyebrow">Interview briefing <b>·</b> prepared 9 September 2026</p>
-      <h1>Head of Partner Operations, Mistral AI
-        <small>From zero to fluent: what the job is, what hurts, and the stories to bring</small>
+      <p class="eyebrow">Interview briefing <b>·</b> rebuilt 9 September 2026 against the posted req and your record</p>
+      <h1>Head of Partner Strategy &amp; Operations, Mistral AI
+        <small>The req, your record, and the pitch that joins them</small>
       </h1>
-      <p class="lede">Mistral makes the engine. Partners are the dealerships, the garages and the toll roads that get it to customers. Partner Operations builds the roads, the signage and the cash registers so partners can sell, Mistral gets paid, and everyone can see who sold what.</p>
+      <p class="lede">Mistral makes the engine. Partners are the dealerships, the garages and the toll roads that get it to customers. This role owns the economics of that network: what the ecosystem is worth, what it is paid, how it is planned, and the one number Finance will sign. That is a finance-and-operating-model job wearing a partner title, and it is the job you did next to the man who now runs Mistral's partner business.</p>
     </header>
 
     <div class="box warn">
-      <p class="label">Read this first</p>
-      <p>The role is not publicly posted as of today, so the scope below is inferred from Mistral's adjacent open roles (three regional Partner Manager GSI roles, a Product Manager for Cloud Partnerships, a Head of Partner Marketing, a Solutions Operations Manager) and from the partner organisation's shape under SVP Kamal Brar. Treat the "job at Mistral" section as a strong hypothesis to confirm in the first screen. Every example story in section 07 is placeholder background written to be rewritten with your real history.</p>
+      <p class="label">What changed since the first draft</p>
+      <ul>
+        <li><strong>The req is now in hand.</strong> The first draft inferred a systems-and-programme administrator. The posted role is <em>Head of Partner Strategy &amp; Operations</em>, reporting to the SVP Partners &amp; Technology, based in New York or San Francisco with Paris secondary. Its through-line, in its own words: "you have built the plan, priced the deals, and defended the numbers." Every "who you are" bullet reads as go-to-market finance.</li>
+        <li><strong>The archetype is retired.</strong> "Built partner operations from zero" is not your story and you should not tell it. Your story is better for this req: you owned the plan, the economics and the guardrails of a partner-led motion inside a $400M field organisation, with Kamal Brar leading the partner business. You also led the marketplace initiative, designed the Infosys structure, ran SAP Solex economics, readied AWS CPPO, and ran direct-sales productivity and enablement before any of that.</li>
+        <li><strong>The OpenAI prep is merged in.</strong> The channel-economics chapter built for Colleen Kapase, the attribution and comp material, the planning doctrine, the free-PS story with Kamal, and the never-say list all carry over. Where it was written as "the finance side of a partner program", it is now written as the job.</li>
+      </ul>
     </div>
 
     <section id="tldr">
       <h2><span class="num">00</span>The ten-minute version</h2>
       <p class="sub">If you read nothing else.</p>
       <ul>
-        <li><strong>What the job is.</strong> You run the machinery behind Mistral's partner business: the programme rules, the systems, the money flows, the enablement, and the reporting. The SVP sets strategy and signs the big deals. You make it executable and measurable.</li>
-        <li><strong>Why now.</strong> Mistral is roughly a year into a partner-led go-to-market pivot. A new SVP of Partners arrived from Confluent in early 2026, Microsoft, Accenture, TCS, Cloudera and Google have all signed large deals since, and regional partner managers are being hired this month. Somebody has to build the operating system underneath all of that. That is you.</li>
-        <li><strong>The three hardest things.</strong> (1) Attribution and channel conflict: who gets credit when Microsoft, Accenture and a Mistral rep all touch the same bank. (2) Money plumbing: Mistral sells through hyperscaler marketplaces, sovereign clouds, resellers and direct, each with different billing, entitlement and support rules. (3) Speed at scale: an 800-person company growing revenue several-fold a year, with partners who each have hundreds of thousands of staff.</li>
-        <li><strong>Who to be.</strong> A builder-operator. You have done the zero-to-one build of a partner operating model before, you are fluent in the vocabulary (deal registration, co-sell, private offers, sourced vs influenced, MDF, PRM), you are comfortable being the referee between Sales, Finance and Partners, and you show your work in numbers.</li>
-        <li><strong>Bring ten stories.</strong> Section 07 lists the shapes. Each needs a situation, what you built, a number, and what you would do differently.</li>
+        <li><strong>What the job is.</strong> The CFO-and-COO of the partner business. Per the req: the attribution framework Finance signs, the annual partner plan with quotas and compensation behind it, the partner P&amp;L and cost per partner-sourced euro against direct, the commercial structures behind the largest deals (OEM, revenue share, co-development, capacity commitments, marketplace offers), pricing precedent, deal registration and co-sell rails, the programme, and the operating cadence. The SVP signs the deals. You make them pay, make them plannable, and defend the number.</li>
+        <li><strong>Why you.</strong> You did this seam at Confluent, inside a ~$400M field budget across Sales, Customer Success and Partner Ecosystems, reporting to the President, while Kamal ran partners. You issued the annual GTM plan (topline, coverage, quota, comp) before the year opened. You cut 30+ points of expense-to-revenue while revenue compounded ~32% a year. You designed the Infosys OEM-plus-services structure, held the margin line on SAP Solex, led the marketplace initiative and CPPO readiness, wrote the crediting policy for OEM deals and defended it with the field, and built attribution net of organic growth in a consumption business. Before that you ran sales productivity and enablement programmes, and at Palo Alto Networks you ran GTM strategy for 2,500 reps and wrote the company pricing framework.</li>
+        <li><strong>The honest boundary, said once and early.</strong> You have not administered a partner programme end to end: tiers, certification, portal, MDF claims. You owned the economics, the plan and the guardrails under the partner leader, and you ran the direct-sales side too. That is the req's exact centre of gravity, and the programme administration is the first hire you would make.</li>
+        <li><strong>The three hardest things.</strong> (1) Attribution the CFO believes, in a consumption business where a partner influences usage it never transacts. (2) Deal structures that do not compound against Mistral: revenue share on a variable stream, capacity commitments, OEM floors. (3) Being the neutral party between a forward-deployed direct team and partners who are also competitors (Microsoft, Google, AWS).</li>
+        <li><strong>Lead with four stories.</strong> The partner P&amp;L and plan under Kamal (story 1). Attribution net of organic, and the OEM retire-and-add crediting policy (story 3). Infosys and Solex as the deal-structure pair (stories 4 and 5). The annual plan, quota and comp redesign (stories 2 and 10). Everything else is reserve.</li>
       </ul>
     </section>
 
     <section id="s101">
       <h2><span class="num">01</span>Partner Operations 101</h2>
-      <p class="sub">Assume you know nothing. This is the whole idea.</p>
+      <p class="sub">The foundations, kept from the first draft. Skim if fluent.</p>
 
       <h3>What a "partner" is</h3>
       <p>Mistral could sell every model licence itself, with its own salespeople calling every bank and carmaker in Europe. It cannot afford to, and customers do not want that anyway. Enterprises already buy from someone: their cloud provider, the consulting firm that runs their IT, the software vendor whose product they live in. A partner is any company that helps Mistral reach, sell to, deploy for, or serve a customer, and gets something for it.</p>
@@ -269,97 +289,75 @@
         <div class="tag">ELI5</div>
         <p>You bake the best bread in town. You can sell it from your own shop, but you reach far more people if supermarkets stock it (cloud providers), if caterers put it in their menus (systems integrators), if sandwich shops build on it (software vendors), and if a delivery service carries it (resellers). Each of those is a partner, each wants a cut, and each needs to know your rules.</p>
       </div>
-      <p>Partner types you will hear about at Mistral, in the words they use:</p>
+      <p>Partner types you will hear about at Mistral, and the only currency that moves each one. The currency column is your own framework from the OpenAI prep and it is the most useful thing in this table.</p>
       <div class="tablewrap"><table>
-        <thead><tr><th>Type</th><th>Who, at Mistral</th><th>What they do for Mistral</th><th>What they want back</th></tr></thead>
+        <thead><tr><th>Type</th><th>Who, at Mistral</th><th>What they do for Mistral</th><th>The currency that moves them</th></tr></thead>
         <tbody>
-          <tr><td>Cloud / hyperscaler</td><td>Microsoft Azure, AWS, Google Cloud, IBM</td><td>Host Mistral models in their catalogues (Foundry, Bedrock, Vertex, watsonx), bill the customer, bring their sales force</td><td>Consumption on their cloud, a differentiated model catalogue, sovereignty story for Europe</td></tr>
-          <tr><td>Sovereign / regional cloud</td><td>Outscale (Dassault), S3NS, Scaleway, Proximus, NTT</td><td>Run Mistral inside national or sector-specific clouds where data cannot leave</td><td>An anchor AI vendor that makes their sovereign pitch credible</td></tr>
-          <tr><td>GSI / SI</td><td>Accenture, Capgemini, TCS, Sopra Steria, Reply, Artefact, Alten</td><td>Sell the project, build the solution, run change management, certify thousands of engineers</td><td>Services revenue, first-mover positioning, sometimes resale margin</td></tr>
-          <tr><td>ISV / data platform</td><td>Snowflake, SAP, Cloudera, Hugging Face</td><td>Embed Mistral where the data already lives, so customers never move it</td><td>Stickier platform, AI features without building models</td></tr>
-          <tr><td>Integration / app</td><td>Notion, Slack, Atlassian, Linear, Zapier, Stripe, Box, Asana, PayPal</td><td>Connect their apps to Le Chat and agents</td><td>Distribution to Mistral users, co-marketing</td></tr>
+          <tr><td>Cloud / hyperscaler</td><td>Microsoft Azure, AWS, Google Cloud, IBM</td><td>Host Mistral models in their catalogues (Foundry, Bedrock, Vertex, watsonx), bill the customer, bring their sales force</td><td>Procurement velocity and their own sellers' comp. Listing is not distribution: if the cloud rep is paid X for the house model, you match it or your name never comes up.</td></tr>
+          <tr><td>Sovereign / regional cloud</td><td>Outscale (Dassault), S3NS, Scaleway, Proximus, NTT</td><td>Run Mistral inside national or sector-specific clouds where data cannot leave</td><td>An anchor AI vendor that makes their sovereign pitch credible; bespoke terms and a direct billing path</td></tr>
+          <tr><td>GSI / SI</td><td>Accenture, Capgemini, TCS, Sopra Steria, Reply, Artefact, Alten</td><td>Sell the project, build the solution, certify thousands of engineers</td><td>Deployment opportunity and services hours. 2% and 10% margin are the same number to a GSI; pay them in engagements, not points.</td></tr>
+          <tr><td>RSI</td><td>Regional integrators, often the only route into a market</td><td>The GSI business at one-country scale</td><td>Real margin or funded enablement. A 200-person firm cannot fund a certified practice on opportunity alone. Segmenting them with GSIs is the common mistake.</td></tr>
+          <tr><td>ISV / data platform</td><td>Snowflake, SAP, Cloudera, Hugging Face</td><td>Embed Mistral where the data already lives</td><td>Transfer price or revenue share; roadmap access. You lose sight of the end customer, so attribution becomes a measurement problem first.</td></tr>
+          <tr><td>OEM / embedded</td><td>Ericsson, Cloudera, any product with a model inside</td><td>Mistral inside someone else's product, sold under their name</td><td>Transfer price versus net revenue share, and the floor underneath. Say which direction: OEM-out (they resell you) or OEM-in (you resell them). The economics invert.</td></tr>
+          <tr><td>Resellers / VARs / MSPs</td><td>Many, mostly small</td><td>Transact and support customers Mistral will never talk to directly</td><td>Margin. The only family where margin is genuinely the motivating currency.</td></tr>
           <tr><td>Compute / hardware</td><td>NVIDIA</td><td>Supply and co-design the infrastructure for Mistral Compute</td><td>Chip demand, a European flagship</td></tr>
-          <tr><td>Resellers / MSPs</td><td>Value-added resellers, managed service providers (many, mostly small)</td><td>Transact and support customers Mistral will never talk to directly</td><td>Margin and a programme with clear rules</td></tr>
         </tbody>
       </table></div>
 
-      <h3>What "operations" means here</h3>
-      <p>Partner Managers (the people being hired in London, Paris and Munich right now) own relationships. They meet Accenture every week, plan joint accounts, chase deals. Partner Operations owns everything those people need to exist but should not be building themselves:</p>
+      <h3>What "strategy and operations" means here</h3>
+      <p>Partner Managers (being hired in London, Paris and Munich right now) own relationships. This role owns everything those people need to exist but should not be building themselves:</p>
       <ul>
-        <li><strong>The rules.</strong> What a partner has to do to join, what tier they are in, what they earn, who gets credit for a deal, what happens when two partners fight over one customer.</li>
-        <li><strong>The systems.</strong> A partner portal (PRM), the CRM fields and workflows, the deal-registration form, the marketplace listings, the contract templates, the data feeds from Azure and AWS that say what was actually consumed.</li>
-        <li><strong>The money.</strong> Margins, referral fees, rebates, market-development funds, credits, how invoices flow when Microsoft bills the customer and pays Mistral.</li>
-        <li><strong>The enablement.</strong> Training paths, certifications, sales kits, demo environments, so that ten thousand TCS engineers can say the same true things about Forge.</li>
-        <li><strong>The scoreboard.</strong> Partner-sourced pipeline, partner-influenced revenue, marketplace bookings, partner health, all in a form the CFO believes and the board can read.</li>
+        <li><strong>The number.</strong> One Finance-signed definition of partner-sourced, influenced and fulfilled revenue, and the annual partner plan the executive team commits to.</li>
+        <li><strong>The economics.</strong> The partner P&amp;L, cost per partner-sourced euro against direct, the rate card, the structures behind OEM, revenue-share, co-development and capacity deals.</li>
+        <li><strong>The rules.</strong> Deal registration, rules of engagement with direct, quota and partner-facing compensation.</li>
+        <li><strong>The rails.</strong> Co-sell and marketplace operations across Microsoft, AWS and Google Cloud; the programme with its tiers, certification and incentives.</li>
+        <li><strong>The cadence.</strong> Weekly operations, monthly business review, quarterly planning, the partner forecast, and the KPI reviews per partnership that close a gap.</li>
       </ul>
       <div class="eli5">
         <div class="tag">ELI5</div>
-        <p>Partner Managers are the players. Partner Ops builds the pitch, paints the lines, keeps the rulebook, runs the scoreboard, and pays out the prize money. When something is unclear, Partner Ops is the referee.</p>
+        <p>Partner Managers are the players. The SVP is the coach who recruits the stars. You decide what a win is worth, what the players get paid, which plays are allowed, and whether the season is on plan. When the direct team and a partner both claim a goal, you are the referee, and you wrote the rulebook before the match.</p>
       </div>
-
-      <h3>Why a company at Mistral's stage suddenly needs it</h3>
-      <p>Early on, partnerships are a handful of executive relationships and a spreadsheet. That works until the third time a Mistral seller and an Accenture partner both claim the same €4M deal, or Finance asks which of the "partner-influenced" numbers on the board slide are real, or a hyperscaler's monthly consumption report does not match Mistral's own invoicing. At that point the SVP hires someone whose job is to make the partner business boringly predictable. The "Head of" title means you are that person and you will build the team under you.</p>
     </section>
 
     <section id="s102">
       <h2><span class="num">02</span>Partner Operations 102</h2>
       <p class="sub">The mechanics you must be able to explain without notes.</p>
 
-      <h3>The partner lifecycle</h3>
-      <p>Every programme is a pipeline of partners, exactly like a sales pipeline of customers. The stages, and what ops owns at each:</p>
-      <ol>
-        <li><strong>Recruit.</strong> Deciding which partners you want (a target list, not whoever applies) and the application flow.</li>
-        <li><strong>Onboard.</strong> Contract (the partner agreement and the partner-served deployment terms), portal access, NDA, tax and payment setup, tier assignment.</li>
-        <li><strong>Enable.</strong> Training, certification, sandbox access, sales playbooks, technical reference architectures.</li>
-        <li><strong>Activate.</strong> The first registered deal, the first marketplace transaction, the first joint customer. Most partners never get here. The ratio of onboarded to activated is the number that tells you whether the programme is real.</li>
-        <li><strong>Grow.</strong> Joint account planning, co-sell motions, quarterly business reviews (QBRs), incentives that reward the behaviour you want.</li>
-        <li><strong>Govern.</strong> Compliance, rules-of-engagement disputes, tier reviews, offboarding partners who do not perform.</li>
-      </ol>
-
       <h3>Deal registration and rules of engagement</h3>
-      <p>Deal registration is the single most important mechanism in partner ops. A partner tells Mistral, in a form, "we found this opportunity at HSBC for OCR on trade documents, roughly €800k." If Mistral approves the registration, that partner is protected: for a defined period they get the credit, the margin or the referral fee, and Mistral's direct sellers are told to work with them rather than around them. Rules of engagement (RoE) are the written policy for the edge cases: what if a Mistral rep was already in the account, what if two partners register the same deal, what if the customer wants to buy direct after a partner did the work.</p>
-      <p>Why it matters: without it, partners will not bring you deals because they fear being cut out, and your own sellers will resent partners because they fear losing commission. With it, everyone knows the price of cooperation in advance.</p>
+      <p>A partner tells Mistral, in a form, "we found this opportunity at HSBC for OCR on trade documents, roughly €800k." If approved, that partner is protected for a defined period: credit, margin or referral fee, and the direct sellers work with them rather than around them. Rules of engagement are the written policy for the edge cases. The two-edged part worth volunteering, from your own deal reviews: registration exists so the same opportunity cannot surface twice at two prices, but your own sellers can often reach a deeper discount than the partner is allowed, which leaves the partner exposed on a deal they sourced. Solex was the lived version: the same product was cheaper direct.</p>
 
-      <h3>Sourced, influenced, and the attribution fight</h3>
+      <h3>Sourced, influenced, fulfilled: the attribution fight</h3>
       <ul>
-        <li><strong>Partner-sourced</strong>: the partner found the deal. Strictest definition, smallest number, most trusted by Finance.</li>
-        <li><strong>Partner-influenced</strong>: the partner materially helped a deal that Mistral or someone else found. Broad, easy to inflate, and the number partner leaders love to quote.</li>
-        <li><strong>Partner-transacted (or "through")</strong>: the partner is on the paper. The customer bought via Azure Marketplace or a reseller, whoever sourced it.</li>
+        <li><strong>Sourced</strong>: the partner found the deal. Strictest, smallest, most trusted by Finance. At Confluent this was the number you judged the partner org on.</li>
+        <li><strong>Influenced</strong>: the partner materially helped. Broad, easy to inflate, the number partner leaders love to quote.</li>
+        <li><strong>Fulfilled</strong> (the req's word; "transacted" elsewhere): the partner is on the paper, whoever sourced it.</li>
       </ul>
-      <p>Your job is to define these so tightly that Sales, Finance and the SVP all agree on them before the quarter closes, then make the CRM enforce the definition rather than trusting people to tag deals honestly. A rule of thumb that survives scrutiny: sourced means the partner registered before any Mistral opportunity existed; influenced requires a named, logged activity (a workshop, a proof of concept, an architecture) before the deal reached a late stage.</p>
+      <p>In a licence business attribution is paperwork. In a consumption business a partner deploys a workload in month one and the usage arrives across two years, mixed with the account's own organic growth. So partner credit has the same shape as rep credit: measured growth minus the account's cohort-expected trajectory. You built that on the direct side. It is an estimate, so it has to be paired with a cadence and a dispute forum, never sold as a receipt.</p>
 
-      <h3>Marketplaces and private offers</h3>
-      <p>The hyperscalers run stores. Mistral's models are listed in Azure (Foundry), AWS (Bedrock), Google Cloud (Vertex) and IBM (watsonx). Two things make marketplaces strategic rather than just a listing:</p>
-      <ul>
-        <li><strong>Committed spend burn-down.</strong> Enterprises have pre-committed to spend, say, €50M a year on Azure. If they buy Mistral through Azure Marketplace, that purchase counts against the commitment. For the buyer it is "free" money they already promised to spend. This is why marketplace deals close faster and why cloud sellers care about them.</li>
-        <li><strong>Private offers.</strong> A custom-priced, custom-termed deal, negotiated by Mistral but transacted and billed through the marketplace. Operations owns the mechanics: who creates the offer, how the discount is approved, how the marketplace fee and the payout timing are reconciled in Mistral's books.</li>
-      </ul>
-      <p>Mistral's own partner-served deployment terms make the model explicit: when a customer buys through a cloud provider or reseller, that partner bills them, supports them, and is their "sole point of contact". Mistral supplies the product and the warranty. That is elegant legally and operationally painful: Mistral loses direct sight of the customer, so the data feeds from partners become the only truth.</p>
+      <h3>Marketplaces, private offers and CPPO</h3>
+      <p>The hyperscalers run stores. Two things make them strategic: committed-spend burn-down (the customer's pre-approved cloud budget pays, so procurement takes days) and private offers (custom price and terms, transacted through the marketplace). AWS CPPO is the version with a consulting partner or reseller in the middle: you authorise the partner, the partner sets the customer price, the sale rides the customer's AWS bill, AWS takes a fee, the partner keeps the spread. You trade a few points for velocity. Mistral's partner-served deployment terms make the partner the customer's sole point of contact, so partner data feeds become the only truth about usage.</p>
+
+      <h3>Deal structures the req names, and the term that decides each</h3>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Structure</th><th>What it is</th><th>The term that actually decides the economics</th></tr></thead>
+        <tbody>
+          <tr><td>OEM / embedded</td><td>Mistral inside their product, sold under their name</td><td>Percentage of net revenue (you absorb their discounting) versus fixed transfer price (they fund it); how bundle discount is allocated across line items; the minimum royalty or engagement floor that binds when volume disappoints</td></tr>
+          <tr><td>Revenue share</td><td>A cut of what they sell</td><td>Whether the share is on a one-time licence or a variable consumption stream. On a stream, 20% is not paid once; it compounds with the customer's own growth forever. Answer: bounty on influenced consumption, or declining rates rich on the land and thin on growth the partner no longer drives</td></tr>
+          <tr><td>Co-development</td><td>Joint build with shared IP or roadmap</td><td>Who carries fixed cost and who carries variable; pay for partner value on realisation, not upfront (the Oracle CDC lesson)</td></tr>
+          <tr><td>Capacity commitment</td><td>Mistral Compute or a cloud committing capacity to a partner, or a partner committing spend to Mistral</td><td>A commitment moves cash, not revenue: unused commit sits as a liability until consumed. Underwrite burn-down pace, not the signature</td></tr>
+          <tr><td>Marketplace channel offer</td><td>Private offer or CPPO listing</td><td>Fee, payout timing, and whether the cloud's own rep is paid to say your name</td></tr>
+        </tbody>
+      </table></div>
 
       <h3>Programme design: tiers, incentives, funds</h3>
       <ul>
-        <li><strong>Tiers</strong> (for example Registered, Select, Premier, Strategic) trade higher benefits for higher commitments: certified headcount, revenue targets, a joint business plan.</li>
-        <li><strong>Margin and referral fees.</strong> Resellers buy at a discount and resell; referral partners get a percentage for an introduction. Both need a rate card and an approval matrix.</li>
-        <li><strong>MDF and co-marketing funds.</strong> Money Mistral gives partners to run events and campaigns, released against a plan and claimed against proof. Ops owns the budget, the claims process and the audit trail.</li>
-        <li><strong>Credits and funded POCs.</strong> The Microsoft deal explicitly includes Azure credits and funded proofs of concept. Somebody has to decide who gets them, track the burn and report the conversion.</li>
-        <li><strong>SPIFs</strong>: short-term cash incentives to partner sellers for a specific behaviour, like the first ten Forge deals in DACH.</li>
-      </ul>
-
-      <h3>Enablement and certification</h3>
-      <p>Accenture committed to training programmes and to equipping its own 784,000 people with Mistral. TCS is the first GSI on Forge. That means Mistral needs a curriculum, a certification exam, a way to track who passed, a demo environment that does not fall over, and a way to keep all of it current when the model line-up changes every few months. Partner Ops typically owns the system and the tracking; partner marketing and solutions engineering own the content.</p>
-
-      <h3>Tooling</h3>
-      <p>The stack you will be expected to have opinions on:</p>
-      <ul>
-        <li><strong>CRM</strong> (almost always Salesforce at this stage; confirm). Partner objects, deal-registration flows, attribution fields, partner-account hierarchies.</li>
-        <li><strong>PRM</strong> (partner portal: Impartner, PartnerStack, Salesforce PRM; Crossbeam for account mapping). Where partners register deals, take training, claim MDF.</li>
-        <li><strong>Marketplace tooling</strong> (Tackle, Clazar, Suger, or the native consoles) to list, price, create private offers and pull consumption and payout reports from the clouds.</li>
-        <li><strong>Data and BI</strong> to reconcile partner-reported consumption with Mistral's usage and billing.</li>
-        <li><strong>Contract lifecycle</strong> for partner agreements, plus legal templates for referral, resale and deployment terms.</li>
+        <li><strong>Tiers</strong> trade benefits for commitments: certified headcount, revenue targets, a joint business plan. Earn them on registered and closed commercial revenue, not logos or downloads. This matters doubly for open weights.</li>
+        <li><strong>Margin and referral fees</strong> need a rate card and an approval matrix. Finance's job: benchmark what competitors and cohort companies pay, then test viability against your own margin. Calibrated, then constrained, not derived from first principles.</li>
+        <li><strong>MDF, credits, funded POCs, SPIFs</strong>: plan-and-claim with proof, burn-down tracked, conversion reported. Fund programmes in tranches released as partner cohorts cross deployment gates; a programme funded in one lump is cut in one lump.</li>
       </ul>
 
       <h3>The operating cadence</h3>
-      <p>Weekly pipeline review with partner managers, monthly reconciliation with Finance, quarterly business reviews with each strategic partner, annual programme and tier review. The cadence is the product: it is how a partner business becomes forecastable.</p>
+      <p>Weekly pipeline and registration review, monthly reconciliation with Finance, quarterly business reviews per strategic partner, annual programme and tier review. Your Confluent stack maps directly: exec weeklies by initiative with eStaff in the room, monthly forecast review at eStaff, quarterly business reviews in the field and retros at eStaff. The cadence is the product: it is how a partner business becomes forecastable.</p>
     </section>
 
     <section id="mistral">
@@ -376,334 +374,516 @@
 
       <h3>What Mistral sells</h3>
       <ul>
-        <li><strong>Models.</strong> A full line: Mistral Medium 3.5 and Small 4 (general), Les Ministraux (edge), OCR 4 (documents), Leanstral (open-source code agent), plus reasoning, audio and multimodal variants. Many are open-weight, which matters for partners: a customer can run the weights themselves.</li>
+        <li><strong>Models.</strong> Mistral Medium 3.5 and Small 4 (general), Les Ministraux (edge), OCR 4 (documents), Leanstral (open-source code agent), plus reasoning, audio and multimodal variants. Many are open-weight: a customer can run the weights themselves, so the partner programme has to monetise what surrounds the weights.</li>
         <li><strong>Le Chat</strong>, the assistant, including Le Chat Enterprise, plus coding-agent tooling under the Vibe name.</li>
-        <li><strong>Mistral AI Studio.</strong> The platform for building, versioning and running applications on the models. This is what cloud partners distribute and what the Product Manager for Cloud Partnerships is hired to grow.</li>
-        <li><strong>Mistral Forge.</strong> Build custom models on your own data, in your own environment. Early access since July 2026, limited to research, government and industry partners. TCS is the first GSI on it.</li>
-        <li><strong>Mistral Compute.</strong> A European AI cloud built with NVIDIA, backed by roughly €4B of data-centre investment in France and Sweden and an $830M debt raise in March 2026 for 13,800 NVIDIA chips. Mistral now calls itself a "neocloud": models plus infrastructure plus deployment.</li>
+        <li><strong>Mistral AI Studio.</strong> The platform for building, versioning and running applications on the models. This is what cloud partners distribute.</li>
+        <li><strong>Mistral Forge.</strong> Custom models on your own data, in your own environment. Early access since July 2026. TCS is the first GSI on it.</li>
+        <li><strong>Mistral Compute.</strong> A European AI cloud built with NVIDIA, roughly €4B of data-centre investment in France and Sweden and an $830M debt raise in March 2026. Mistral calls itself a "neocloud". For you: capacity commitments are now a deal structure Mistral can offer as well as receive.</li>
         <li><strong>AI for Citizens</strong>, the public-sector programme (France's employment agency, Luxembourg, defence with Helsing and the French military).</li>
       </ul>
 
       <h3>How Mistral goes to market</h3>
-      <p>Three motions that all touch your job:</p>
       <ul>
-        <li><strong>Forward-deployed, direct.</strong> TechCrunch calls it "the Palantir playbook": Mistral engineers deploy on the customer's infrastructure and tailor the solution. Customers include Airbus, HSBC, Stellantis, Orange, ASML, AFP, Ericsson. High-touch, high-value, hard to scale, and the motion partners are meant to multiply.</li>
-        <li><strong>Through clouds and platforms.</strong> Azure, AWS, Google Cloud, IBM, Snowflake Cortex, Cloudera, SAP, Outscale. The customer buys where they already buy.</li>
+        <li><strong>Forward-deployed, direct.</strong> Mistral engineers deploy on the customer's infrastructure. Airbus, HSBC, Stellantis, Orange, ASML, AFP, Ericsson. High-touch, hard to scale, and the motion partners are meant to multiply. FDE is shared vocabulary with your Confluent record.</li>
+        <li><strong>Through clouds and platforms.</strong> Azure, AWS, Google Cloud, IBM, Snowflake Cortex, Cloudera, SAP, Outscale.</li>
         <li><strong>Through SIs.</strong> Accenture, Capgemini, TCS and regional SIs sell the transformation project and build on Mistral.</li>
       </ul>
 
       <h3>The partner organisation</h3>
-      <p><strong>Kamal Brar</strong> joined in January 2026 as SVP, Partners and Alliances (some coverage says Partners and Technology), from Confluent, where he ran global partner strategy for about four years across SIs, clouds, ISVs, marketplaces, OEMs and MSPs. Before that: MongoDB, Oracle, IBM. He is almost certainly the hiring manager or the manager's manager. He has run a mature partner operating model before, so he knows exactly what he is missing and will test whether you do. His public line: partnerships are "the building blocks of how we bring our technology to enterprises everywhere."</p>
-      <p>Around him, as of this week: three regional Partner Manager GSI roles open (UK and Northern Europe in London, Southern Europe in Paris, DACH in Munich), an EMEA SI partner manager, a Product Manager for Cloud Partnerships, a first Head of Partner Marketing, and a Solutions Operations Manager for revenue growth. Read that as: the field team is being built now and the operations layer under it does not yet exist.</p>
+      <p><strong>Kamal Brar</strong> joined in January 2026 as SVP, Partners and Technology, from Confluent, where he ran the global partner business for about four years across SIs, clouds, ISVs, marketplaces, OEMs and MSPs. Before that: MongoDB, Oracle, IBM. The req reports to him. Around him: three regional Partner Manager GSI roles open, an EMEA SI partner manager, a Product Manager for Cloud Partnerships, a first Head of Partner Marketing, and a Solutions Operations Manager. The field team is being built now; this req is the operating and economic layer under it, and the "new team designation" in the req header says the team does not exist yet.</p>
 
       <h3>The partnership timeline</h3>
       <div class="tablewrap"><table>
-        <thead><tr><th>When</th><th>Partner</th><th>What it is</th><th>Ops implication</th></tr></thead>
+        <thead><tr><th>When</th><th>Partner</th><th>What it is</th><th>What this role owns in it</th></tr></thead>
         <tbody>
-          <tr><td>Nov 2025</td><td>Dassault / Outscale</td><td>Le Chat Enterprise and AI Studio on a sovereign French cloud</td><td>Sovereign-cloud terms, separate billing and support chain</td></tr>
-          <tr><td>Jan 2026</td><td>Kamal Brar hired</td><td>SVP to lead the global partner business</td><td>The mandate you would be operationalising</td></tr>
-          <tr><td>Feb 2026</td><td>Accenture</td><td>Multi-year: training and certification, change management, Accenture as a customer for 784k staff; Studio and Compute</td><td>Certification at scale, internal-use licensing, co-sell</td></tr>
-          <tr><td>Feb 2026</td><td>Ericsson</td><td>Telecom AI, model customisation</td><td>Vertical partner, likely OEM-style terms</td></tr>
-          <tr><td>May 2026</td><td>Airbus; TCS</td><td>Airbus sovereign aerospace AI; TCS first GSI on Forge</td><td>Forge as a partner-deliverable product with early-access gating</td></tr>
-          <tr><td>Jul 2026</td><td>Microsoft</td><td>Expanded strategic deal: Foundry, Copilot Studio, Azure; cloud, Azure Local and disconnected deployment; multibillion European infra commitment; aligned GTM planning, funded POCs, Azure credits, joint workshops</td><td>The single biggest ops workload: co-sell governance, credit tracking, three deployment modes to entitle</td></tr>
-          <tr><td>Sep 2026</td><td>Cloudera</td><td>Nine-figure partnership: Mistral models in hybrid data platform, Forge on-prem</td><td>Embedded revenue recognition, on-prem entitlement</td></tr>
-          <tr><td>Sep 2026</td><td>Series D</td><td>€3B, Samsung-led, with EQT and PSG</td><td>Budget exists; expectation of scale is now explicit</td></tr>
+          <tr><td>Nov 2025</td><td>Dassault / Outscale</td><td>Le Chat Enterprise and AI Studio on a sovereign French cloud</td><td>Sovereign-cloud terms as a reference structure, separate billing chain</td></tr>
+          <tr><td>Jan 2026</td><td>Kamal Brar hired</td><td>SVP to lead the global partner business</td><td>The mandate you would be putting numbers under</td></tr>
+          <tr><td>Feb 2026</td><td>Accenture</td><td>Multi-year: training and certification, change management, Accenture as a customer for 784k staff; Studio and Compute</td><td>KPIs per the req: committed services hours, certified headcount, sourced pipeline, joint deployments, tracked against what was agreed</td></tr>
+          <tr><td>Feb 2026</td><td>Ericsson</td><td>Telecom AI, model customisation</td><td>OEM-style terms; a pricing precedent to write down</td></tr>
+          <tr><td>May 2026</td><td>Airbus; TCS</td><td>Airbus sovereign aerospace AI; TCS first GSI on Forge</td><td>Forge as a partner-deliverable product; partner licence model</td></tr>
+          <tr><td>Jul 2026</td><td>Microsoft</td><td>Expanded strategic deal: Foundry, Copilot Studio, Azure; cloud, Azure Local and disconnected deployment; multibillion European infra commitment; aligned GTM planning, funded POCs, Azure credits, joint workshops</td><td>The biggest workload: co-sell rails, credit burn-down and POC conversion, three deployment modes, commit economics</td></tr>
+          <tr><td>Sep 2026</td><td>Cloudera</td><td>Nine-figure partnership: Mistral models in hybrid data platform, Forge on-prem</td><td>Embedded revenue share or transfer price; the floor; on-prem entitlement</td></tr>
+          <tr><td>Sep 2026</td><td>Series D</td><td>€3B, Samsung-led, with EQT and PSG</td><td>Budget exists; the expectation of a partner P&amp;L is now explicit</td></tr>
         </tbody>
       </table></div>
 
       <h3>The strategic frame everyone at Mistral repeats</h3>
-      <p><strong>Sovereignty and control.</strong> Run it where your data is, on your terms, outside centralised control. Every partnership announcement uses this language. For partner ops it has a concrete consequence: Mistral's product must be deliverable in more configurations than any US lab bothers with (hyperscaler cloud, sovereign cloud, on-prem, air-gapped, on device), and every configuration is a different entitlement, billing and support path.</p>
+      <p><strong>Sovereignty and control.</strong> Run it where your data is, on your terms. For this role it has a concrete consequence: Mistral's product must be deliverable in more configurations than any US lab bothers with (hyperscaler cloud, sovereign cloud, on-prem, air-gapped, on device), and every configuration is a different entitlement, billing path and revenue-recognition question.</p>
     </section>
 
     <section id="job">
-      <h2><span class="num">04</span>What "Head of Partner Operations" means at Mistral</h2>
-      <p class="sub">Inferred. Confirm it in the first conversation and adjust.</p>
-      <p>Put the pieces together. A partner leader with a mature mental model from Confluent. A field team of regional partner managers being hired this month. Four or five very large partnerships signed in nine months with real operational commitments inside them (credits, funded POCs, certifications, joint planning). A product that ships through at least six third-party catalogues and several deployment modes. A CFO and a board who now want to know what share of $1B is partner-driven. There is no public sign that any of the underlying machinery exists yet.</p>
-      <p>So the mandate is most likely:</p>
-      <ol>
-        <li><strong>Design the partner programme</strong>: types, tiers, benefits, obligations, rate card, RoE, deal registration. Version one in a quarter, not a year.</li>
-        <li><strong>Stand up the systems</strong>: PRM, CRM partner objects, marketplace operations, contract templates, a partner data model, dashboards.</li>
-        <li><strong>Operationalise the big deals</strong>: turn the Microsoft, Accenture, TCS, Google and Cloudera agreements into trackable commitments, joint plans, credit budgets and QBRs.</li>
-        <li><strong>Own partner revenue reporting</strong> with Finance: sourced, influenced, transacted, marketplace, all reconciled.</li>
-        <li><strong>Run enablement operations</strong>: the certification system, the tracking, the demo environments.</li>
-        <li><strong>Build the team</strong>: probably programme ops, marketplace ops, enablement ops, and analytics, sized to a few people in year one.</li>
-      </ol>
-      <p>The reporting line is likely to the SVP Partners, dotted to the revenue or business operations leader. Your peers are the Partner Managers, the cloud-partnerships PM, the Head of Partner Marketing, Sales Ops, Finance, Legal. Paris or London is the likely base; the posted partner roles are in Paris, London and Munich.</p>
+      <h2><span class="num">04</span>The req, line by line, against your record</h2>
+      <p class="sub">Posted. Reports to SVP Partners &amp; Technology. New York or San Francisco, Paris secondary. Hybrid, ~25% travel.</p>
+      <p>The req's own summary of the person: "We are open on background. The through-line is that you have built the plan, priced the deals, and defended the numbers — that experience comes from go-to-market finance, revenue and business operations, and partner operations alike." Read that as an invitation written for a GTM finance leader with partner exposure. Every bullet below is quoted from the req, then answered from your record, with the honest gap where one exists.</p>
+
+      <h3>What you will do</h3>
+      <div class="tablewrap"><table class="map">
+        <thead><tr><th>The req says</th><th>What it means</th><th>Your evidence</th></tr></thead>
+        <tbody>
+          <tr><td>Own how the company values partner contribution: set the sourced, influenced and fulfilled framework with Finance, defend it when contested, own the number the executive team plans against</td><td>Write the attribution policy and be the one who says no when the field or a partner wants a bigger number</td><td><span class="yes">HAVE</span> Sales-attributed consumption ARR net of organic growth, built into planning and measured in the forecast daily. Judged the partner org on partner-sourced. Refused OEM double-crediting and designed retire-and-add instead. Story 3.</td></tr>
+          <tr><td>Own the annual partner plan: sourced, influenced and fulfilled targets by motion; initiatives and resourcing with the SVP and Finance</td><td>The partner half of an annual GTM plan, issued before the year opens</td><td><span class="yes">HAVE</span> Issued the field's annual plan: baseline first, then named initiatives with owners (one year: 25% target = 20% confidence + 5% of priced initiatives, including more OEM reps). Partner Ecosystems sat inside that plan under Kamal. Stories 1, 2. <span class="gap">Fill: the partner-plan artefacts and targets you set</span></td></tr>
+          <tr><td>Own the economics of the ecosystem: delivery capacity the plan requires, the partner P&amp;L, cost per partner-sourced euro against direct</td><td>An indirect-versus-direct P&amp;L where every scarce resource has exactly one home</td><td><span class="yes">HAVE</span> Your indirect-vs-direct P&amp;L doctrine from the Kapase prep (deal-embedded economics vs capacity investment, tie-out test). Delivery capacity: the AE-to-SE re-resourcing on median productivity evidence; free PS in APAC funded by raising the revenue goal to hold margin. Stories 1, 8, 9.</td></tr>
+          <tr><td>Set quota and compensation: the quota model and the partner-facing compensation plans</td><td>Design what partners and partner managers are paid on, and what that does to behaviour</td><td><span class="yes">HAVE</span> Drove the bookings-to-consumption comp redesign for the CEO with fully costed alternatives, vetoed total-consumption pay, held commissions-to-revenue flat. Three-ways-to-pay framework for partners. Story 10.</td></tr>
+          <tr><td>Develop the commercial structures for the largest agreements: OEM and embedded, revenue share, co-development, capacity commitments, marketplace channel offers; pressure-test the economics before they are committed</td><td>Model non-standard deals and say what would have to be true</td><td><span class="yes">HAVE</span> Infosys (services business exchanged for a $50M OEM purchase; you led the design). SAP Solex revenue share (held the margin line by narrowing the aperture). Oracle CDC OEM-in ($1.3M upfront, nothing returned: pay on realisation). OEM deals that carried a year. Stories 4, 5.</td></tr>
+          <tr><td>Establish pricing precedent and reference structures so each new agreement is shaped against precedent</td><td>A standard structure and guardrails per deal type</td><td><span class="yes">HAVE</span> Wrote Palo Alto Networks' company-wide pricing-proposal framework and discounting policies; 10+ pricing models; recovered $40M by removing built-in multi-year discounts. Confluent deal-desk auto-approval policy and renewal uplift rule. Story 7.</td></tr>
+          <tr><td>Drive cross-functional alignment: Sales, Legal, Finance, Security, executive team to a shared position on a committed timeline</td><td>Referee with a deadline</td><td><span class="yes">HAVE</span> Executive finance partner to the President over the whole field; CEO-level comp decision framing; CFO accountability on free PS. Stories 2, 8.</td></tr>
+          <tr><td>Build the transaction rails: deal registration, rules of engagement with direct, co-sell and marketplace operations across Microsoft, AWS and Google Cloud</td><td>The plumbing</td><td><span class="part">PARTIAL</span> Led the Confluent marketplace initiative; readied org and product for AWS CPPO sell-through; first-party listings on AWS, GCP and Azure. Deal-registration guardrails from the finance side. Not run Microsoft or Google co-sell ops day to day. Story 6. <span class="gap">Fill: marketplace numbers</span></td></tr>
+          <tr><td>Architect and execute a world-class partner programme: tiers, Mistral-owned certification, incentive instruments, administered end to end</td><td>The programme as a product</td><td><span class="part">PARTIAL</span> Set incentive levels and guardrails for Confluent's programme (calibrated then constrained); redirected Symantec partner-programme incentives to smaller accounts for +30% channel-spend ROI. Never administered tiers, certification or a portal. Say so; hire for it first.</td></tr>
+          <tr><td>Run the operating cadence: weekly ops, monthly business review, quarterly planning, the partner forecast the executive team commits to</td><td>The rhythm</td><td><span class="yes">HAVE</span> Exec weeklies by initiative, monthly forecast at eStaff, QBRs and retros; a forecast engine of baseline + organic + sales-attributed. Story 2.</td></tr>
+          <tr><td>Drive partner performance against commitments: KPIs per partnership (services hours, certified headcount, sourced pipeline, joint deployments), attainment tracking, quarterly reviews and interventions</td><td>Accountability with named numbers</td><td><span class="yes">HAVE</span> Held theatre leaders to leading indicators they had agreed to; Digital Native leader removed when the indicators failed. Free PS tracked at pipeline level until it proved out. Stories 2, 8.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Who you are</h3>
+      <div class="tablewrap"><table class="map">
+        <thead><tr><th>The req says</th><th>Your answer</th></tr></thead>
+        <tbody>
+          <tr><td>12+ years across GTM strategy and operations, GTM or revenue finance, business operations, or partner operations, with recent time at the leadership table of a GTM organisation</td><td><span class="yes">YES</span> Fifteen years: Symantec sales and channel finance, Palo Alto Networks strategic finance, pricing and GTM strategy, Confluent productivity programmes then VP GTM Finance reporting to the President.</td></tr>
+          <tr><td>Built an annual GTM plan end to end (topline, coverage, quota, compensation) and issued it before the year opened</td><td><span class="yes">YES</span> Literally. Story 2.</td></tr>
+          <tr><td>Owned an operating expense budget, and made the trade-offs when it was cut</td><td><span class="yes">YES</span> ~$400M, 1,000+ heads. 30+ points of expense-to-revenue out, as a system: baseline-first, zero-based self-funded initiatives, capacity reallocated on productivity evidence. Dismantled the centralised acquisition org. Stopped backfilling AEs.</td></tr>
+          <tr><td>Designed or governed the commercial structures behind non-standard deals (OEM or embedded, revenue share, co-development, capacity) and aligned Legal, Finance and the executive team</td><td><span class="yes">YES</span> Infosys, Solex, Oracle CDC, the OEM book. Stories 4, 5.</td></tr>
+          <tr><td>Written a revenue attribution or crediting policy and defended it with Finance and with the field</td><td><span class="yes">YES</span> Net-of-organic attribution; OEM retire-and-add; "disputes moved to 'I was given the wrong baseline', researched one by one, relief where appropriate." Story 3.</td></tr>
+          <tr><td>Understand how selling through clouds and integrators actually pays: committed spend drawn down, marketplace shortening procurement, where partner margin comes from. Hyperscaler co-sell an advantage, not a prerequisite</td><td><span class="yes">YES</span> CPPO mechanics, commit burn-down, MSK incentive parity, GSI-makes-money-on-services. Story 6.</td></tr>
+          <tr><td>Consumption or usage-based revenue where a deal is a ramp not an event; comfort working directly with a CRO and a CFO on revenue quality and forecast integrity</td><td><span class="yes">YES</span> Co-architected the bookings-to-consumption transformation at a public company. This is the strongest line on your résumé and it is the req's second-to-last bullet.</td></tr>
+          <tr><td>Credible as the neutral party between a direct sales organisation and a partner organisation; able to hire and lead a small senior team</td><td><span class="yes">YES</span> Finance partner to both, under one President. Ran direct-sales productivity and enablement before that. Sales leadership later defended your OEM crediting call as protecting them. Built and led a team of up to 22 with five directors.</td></tr>
+          <tr><td>Willing to travel (~25%)</td><td>Your call. San Francisco is the natural base from San Jose; Paris is secondary.</td></tr>
+        </tbody>
+      </table></div>
+
       <div class="box slate">
         <p class="label">How they will judge you</p>
-        <p>Not on whether you like partnerships. On whether you can take a whiteboard of relationships and turn it into a system that pays partners on time, tells the CFO a number they can defend, and lets a new Partner Manager in Munich be productive in week two. Every answer you give should end with something that got built and something that got measured.</p>
+        <p>Not on whether you can describe a partner programme. On whether you can put a number under Kamal's deals that the CFO signs, a plan the executive team commits to, and structures that do not compound against Mistral three years out. Every answer should end with a decision you owned and what it protected.</p>
       </div>
     </section>
 
+    <section id="kamal">
+      <h2><span class="num">05</span>Kamal, and the room beyond him</h2>
+      <p class="sub">The hiring manager knows your work. That is an asset and a hazard.</p>
+
+      <h3>What he knows</h3>
+      <p>He watched you run the finance under his partner business for years. He knows the free-PS-in-APAC episode from the other side: you were unsure, he was sure, you got the CFO's accountability by raising his combined revenue goal, then you tracked it until it proved him right and prompted your broader PS analysis. He knows the partner-sourced standard you held his org to. He knows the OEM deals that carried a year, and which ones were not good for Confluent. He knows Solex and Infosys. Assume he remembers the disagreements more vividly than the agreements.</p>
+
+      <h3>What he is missing, and why that is the pitch</h3>
+      <p>The read from your OpenAI prep was blunt: Kamal is a dealmaker, not a channel-economics person. The req is the economics. Microsoft, Accenture, TCS, Cloudera and Ericsson are signed; the question the CFO and the board are now asking is what share of $1B the ecosystem carries and at what cost. That is precisely the half he needs beside him, and he wrote a req whose "who you are" section reads like your résumé. Say the complement out loud without saying it about him: "You sign them. I make them pay, make them plannable, and defend the number."</p>
+
+      <div class="box warn">
+        <p class="label">The hazards</p>
+        <ul>
+          <li><strong>Do not correct his economics in the room.</strong> Make him look right. Where a deal he signed has a structural problem (a revenue share on a stream, a floor that binds), frame it as "here is how we make this one pay" not "here is what is wrong with it."</li>
+          <li><strong>Do not rely on the relationship.</strong> Prepare as if he has to defend the hire to a CFO and a CRO who do not know you. He does.</li>
+          <li><strong>Expect "tell me about a time we disagreed."</strong> Have the free-PS story ready told his way: he was right, your contribution was the accountability structure that let the CFO say yes and the tracking that proved it.</li>
+          <li><strong>Do not describe his Confluent programme back to him.</strong> He built it. Talk about what you did next to it and what you would do under him now.</li>
+        </ul>
+      </div>
+
+      <h3>Who else is likely in the loop</h3>
+      <p>Not confirmed; get it from the recruiter. The req's own cross-functional list is the likely panel: Mistral's Finance leadership (the person who signs the attribution definition), the CRO or head of the direct field (the neutral-party test), possibly the Head of Solutions or Solutions Operations, and possibly the CEO for a head-level hire at an 800-person company. Prepare each as its own room:</p>
+      <ul>
+        <li><strong>Finance.</strong> Wants the number to be conservative and auditable. Lead with net-of-organic attribution, the two-ledger discipline (which ledger the plan is held to), and "the partner-sourced figure is deliberately the smallest one."</li>
+        <li><strong>The CRO / direct field.</strong> Fears margin dilution and losing commission to partners. Lead with retire-and-add, per-workload ownership, and that you ran direct-sales productivity yourself. Attribution is heard as fairness: frame it as defending the field's budget with data.</li>
+        <li><strong>The CEO, if present.</strong> Wants speed and someone who does not need a big team. Lead with the 90-day sketch and the hiring triggers.</li>
+      </ul>
+    </section>
+
     <section id="problems">
-      <h2><span class="num">05</span>The hardest problems, and what a good answer sounds like</h2>
-      <p class="sub">These are the things the interviewer is quietly worried about.</p>
+      <h2><span class="num">06</span>The hardest problems, and what a good answer sounds like</h2>
+      <p class="sub">What the interviewer is quietly worried about, answered with your own frameworks.</p>
 
-      <h3>1. Channel conflict with a forward-deployed direct team</h3>
-      <p>Mistral's growth so far came from its own engineers embedded with customers. Those teams will see partners as slower and less capable. Partners will see the direct team as competition. <em>Good answer:</em> clear RoE with a named deal-registration window, neutral compensation for direct sellers on partner-transacted deals so they do not fight the channel, an escalation path with a 48-hour SLA, and a published scorecard so conflict is decided by policy, not by whoever shouts loudest.</p>
+      <h3>1. Attribution the CFO believes, in a consumption business</h3>
+      <p>The company is headed for a $1B ARR claim and a possible listing. "Partner-influenced" cannot be a vanity number, and a partner influences usage it never transacts. <em>Good answer:</em> three numbers defined in writing and enforced in the CRM. Sourced requires registration before any Mistral opportunity existed and is deliberately conservative. Influenced requires a named, logged activity and is measured as the account's growth net of its cohort-expected trajectory, with quarterly true-ups and a standing dispute forum. Fulfilled is the paper. Say the honest part: it is an estimate that has to rank, not a receipt.</p>
 
-      <h3>2. The hyperscalers are partners and competitors</h3>
-      <p>Microsoft sells OpenAI, Google sells Gemini, AWS sells everything. Mistral's differentiation in those catalogues is sovereignty and open weights, not being the default. <em>Good answer:</em> treat each cloud as a separate programme with its own co-sell playbook, own the marketplace listing quality and private-offer speed as a competitive weapon (be the easiest model vendor to transact), and build relationships with the cloud's sovereignty and regulated-industry teams rather than their general AI sellers.</p>
+      <h3>2. Deal structures that compound against Mistral</h3>
+      <p>Cloudera, Ericsson and the SIs will want revenue shares; Microsoft has commitments; sovereign clouds want bespoke terms. <em>Good answer:</em> the compounding arithmetic (20% of a licence once versus 20% of a tripling stream forever), so partner economics go on influenced consumption or declining rates, not the whole stream. Then the three terms that decide an OEM deal: net share versus transfer price, bundle-discount allocation, and the floor. Then the reference structure: a template per deal type with a small number of negotiable variables, so the fifth sovereign-cloud agreement takes weeks.</p>
 
-      <h3>3. Money plumbing across six deployment paths</h3>
-      <p>Cloud-hosted via a marketplace, sovereign cloud, partner-hosted, customer on-prem, air-gapped, on-device. Each has a different entitlement (who is allowed to run what), a different biller, a different support chain, and different revenue recognition. Open weights add a twist: a customer can download the model, so what exactly is being licensed and metered? <em>Good answer:</em> one entitlement model with a licence key or consumption meter that works everywhere, a monthly reconciliation of partner-reported usage against Mistral's own telemetry, and a decision rule for what is sold as software licence vs consumption vs support subscription.</p>
+      <h3>3. Channel conflict with a forward-deployed direct team</h3>
+      <p>Mistral's growth so far came from its own engineers embedded with customers. <em>Good answer:</em> in consumption, "who owns the customer" means who owns the usage telemetry and the expansion motion, per workload not per account, so conflict is a quarterly operating condition and needs a standing forum, not an escalation path. Direct sellers are paid neutrally on partner-fulfilled deals via retire-and-add rather than double-credit. And the two-edged registration failure mode, volunteered.</p>
 
-      <h3>4. Attribution the CFO believes</h3>
-      <p>The company is headed for a $1B ARR claim and a possible public listing. "Partner-influenced" cannot be a vanity number. <em>Good answer:</em> definitions agreed with Finance in writing, enforced in CRM through required activity records, reported every month, with a partner-sourced figure that is deliberately conservative.</p>
+      <h3>4. The hyperscalers are partners and competitors</h3>
+      <p>Microsoft sells OpenAI, Google sells Gemini, AWS sells everything. <em>Good answer:</em> listing is not distribution. If the cloud rep is paid X for the house model you match it in some form (co-sell credit, SPIF, quota retirement) or your name never comes up. Then: be the easiest model vendor to transact (private-offer speed), and go through the clouds' sovereignty and regulated-industry teams rather than their general AI sellers. You lived this against MSK.</p>
 
-      <h3>5. Enablement at GSI scale with a fast-moving product</h3>
-      <p>Accenture alone has far more staff than Mistral has employees, by three orders of magnitude. Model names change quarterly and Forge is still early access. <em>Good answer:</em> a small, versioned certification with a clear owner, a train-the-trainer model inside each GSI, a sandbox with usage limits so it cannot become a cost centre, and a metric that ties certifications to registered deals rather than counting badges.</p>
+      <h3>5. What partners get paid on, for an open-weight product</h3>
+      <p>A partner can deploy the weights and never pay Mistral. <em>Good answer:</em> three ways to pay, three ecosystems. Pay on fulfilled revenue and you build resellers. Pay on influenced consumption and you build practice-builders. Pay on certified capacity and you build trainers. The right one is whichever you are short of, and Mistral is short of deployment capacity, so the design space is influenced consumption and certified capacity, with tiers earned on commercial outcomes and the money made on what partners cannot get free: Studio, Forge, Compute, support, indemnity. Guardrail: whatever you pay on must be measurable at the account level within the quarter you pay it.</p>
 
-      <h3>6. Sovereignty means bespoke everything</h3>
-      <p>Outscale, S3NS, Scaleway and Proximus each need Mistral in a specific national or sector configuration. Every one will want custom terms. <em>Good answer:</em> a template sovereign-cloud agreement with a small number of negotiable variables, so the fifth one takes weeks rather than months.</p>
+      <h3>6. Delivery capacity and the FDE seam</h3>
+      <p>FDEs and partners both create consumption they do not transact. <em>Good answer:</em> who deploys is a cost and capacity question; who gets credit is an incentive question; keep them separate or you pay twice. FDE capacity is rival, so partners are the additive surge. Fund enablement per certified practitioner with a stated payback in influenced consumption, released in tranches as cohorts cross deployment gates. You re-resourced from AEs to SEs on median productivity evidence; this is the same argument.</p>
 
-      <h3>7. Speed and headcount</h3>
-      <p>A company of 800 growing revenue several-fold cannot wait for a 12-month programme build. <em>Good answer:</em> ship a minimum programme in 90 days on existing tools, and be explicit about what is deliberately deferred.</p>
+      <h3>7. Is the programme working, and how soon would you know</h3>
+      <p><em>Good answer:</em> compare cohort progression of partner-sourced accounts against direct-sourced accounts at the same consumption gates. If partner lands do not progress, the programme is manufacturing activity, and you want to know in quarter two. You ran exactly this on zero-commit lands at Confluent and it told you the belief was wrong. Then the fairness point: partner revenue lands later and noisier than direct; hold it to direct standards and you kill it before it works.</p>
+
+      <h3>8. Speed and headcount</h3>
+      <p>An 800-person company growing several-fold cannot wait for a 12-month build. <em>Good answer:</em> the definitions and the plan ship in a quarter on existing tools; say what is deliberately deferred; hire programme administration first and analytics second, each with a trigger.</p>
     </section>
 
     <section id="portray">
-      <h2><span class="num">06</span>How to portray yourself</h2>
-      <p class="sub">The archetype, the vocabulary, and the traps.</p>
+      <h2><span class="num">07</span>How to portray yourself</h2>
+      <p class="sub">The archetype, the boundary, the doctrine, the traps.</p>
 
-      <h3>The archetype: builder-operator</h3>
-      <p>Not the relationship person (that is the Partner Managers), not the strategist (that is the SVP), not the pure Sales Ops analyst (too narrow). You are the person who has taken a partner motion from "a few executive friendships" to "a programme with a rate card, a portal and a monthly number", and who can do it again faster at a company moving at Mistral's pace.</p>
+      <h3>The archetype: the partner business's finance and operating leader</h3>
+      <p>Not the relationship person (the Partner Managers), not the dealmaker (the SVP), not the programme administrator (your first hire). You are the person who has built the plan, priced the deals and defended the numbers for a partner-led motion, in a consumption business, next to the leader who now runs Mistral's ecosystem. That is the req's through-line in your own biography.</p>
+
+      <div class="say"><b>The boundary, said once and early</b>"I have not run a partner programme end to end. What I did was own the economics, the plan and the guardrails of the partner business under Kamal, inside a four-hundred-million-dollar field budget, and before that I ran the direct side's productivity and enablement. The programme administration is the first person I would hire. The number, the plan and the deal structures are what I do."</div>
+
+      <h3>Five ideas that are yours</h3>
+      <p>These came out of the OpenAI prep and they are the difference between describing partner economics and having done them. Use each once, in a sentence.</p>
+      <ol>
+        <li><strong>Three ways to pay, three ecosystems.</strong> Fulfilled revenue builds resellers; influenced consumption builds practice-builders; certified capacity builds trainers. Pay for the species you are short of.</li>
+        <li><strong>Partner margin on a stream compounds.</strong> A discount on a licence costs once; a share of a consumption stream costs on the customer's own growth forever. Hence bounties on influenced consumption and declining-rate structures. And the reframe: margin for capacity is a discount; margin for capability is an investment.</li>
+        <li><strong>Attribution net of organic, paired with a cadence.</strong> Credit is measured growth minus the account's cohort-expected line. It ranks, it does not receipt. The partner version and the rep version are the same maths.</li>
+        <li><strong>A partner's type tells you the only currency that moves it.</strong> Services firms want engagements; transacting firms want margin; embed partners want the transfer price; marketplaces want their sellers' comp. Paying the wrong currency is the most expensive channel mistake there is.</li>
+        <li><strong>Indirect and direct P&amp;Ls must tie out.</strong> Split partner spend into deal-embedded economics (contra revenue, margin, fees; self-funding, governed by unit-economics floors) and capacity investment (partner managers, MDF, enablement, co-delivery hours, allocated field time). Every scarce resource has one home. If the decomposition does not close to total GTM cost, the allocation is built on sand.</li>
+      </ol>
 
       <div class="two">
         <div class="box">
           <h4>Signal these traits</h4>
           <ul>
-            <li>You start with the money flow and the data model, then the process, then the tool.</li>
-            <li>You have been the referee between Sales and Partners and survived it.</li>
-            <li>You quantify: activation rate, sourced pipeline, marketplace share of bookings, days from registration to approval.</li>
-            <li>You ship version one in a quarter and say what you left out.</li>
-            <li>You have worked with at least one hyperscaler marketplace and at least one GSI at programme level.</li>
-            <li>You are comfortable in a French-founded, European-first company with US ambitions: sovereignty is a real selling point, not marketing.</li>
+            <li>You start with the unit of measure and the money flow, then the rules, then the tool.</li>
+            <li>You have been the neutral party between Sales, Finance and Partners under one President and survived it.</li>
+            <li>You quantify, and you volunteer the cost of your own decisions (attrition 21% to ~31% after the comp change).</li>
+            <li>You ship the definitions and the plan in a quarter and say what you deferred.</li>
+            <li>You de-attribute yourself (cloud mix was already moving before the transformation). It makes everything else believable.</li>
+            <li>You know Kamal's deals from the finance side and you will make them pay.</li>
           </ul>
         </div>
         <div class="box">
           <h4>Avoid</h4>
           <ul>
-            <li>Leading with "I love building relationships." That is the other job.</li>
-            <li>Proposing a big-bang PRM implementation before knowing what the field needs.</li>
-            <li>Quoting partner-influenced numbers without saying how they were defined.</li>
-            <li>Treating marketplaces as a listing exercise rather than a sales channel.</li>
+            <li>Claiming you built a partner programme from nothing. One follow-up unravels it.</li>
+            <li>Reducing channel to a discount question. Attribution, capability and ecosystem design are the conversation.</li>
+            <li>Quoting a specific Solex revenue-share percentage. Describe the shape: resale-grade share on SAP paper with a floor underneath.</li>
+            <li>Describing Kamal's Confluent programme back to him.</li>
             <li>Sounding like you need a large team before anything happens.</li>
-            <li>Lecturing them about the AI market. Know the products; do not pretend to be a researcher.</li>
+            <li>Untranslated Confluent shorthand. Say "sales-attributed consumption ARR net of organic," never "SP ARR." Keep "FDE".</li>
           </ul>
         </div>
       </div>
 
       <h3>Vocabulary to use naturally</h3>
-      <p>Deal registration, rules of engagement, sourced vs influenced vs transacted, private offers, committed-spend burn-down, co-sell, joint business plan, QBR, partner tiering, rate card, MDF, SPIF, activation rate, PRM, account mapping, entitlement, consumption reconciliation, partner-served deployment, sovereign cloud, GSI, ISV, MSP, OEM, embedded, referral, resale. If you can use each of these correctly in a sentence, you sound like you have done the job.</p>
+      <p>Sourced, influenced, fulfilled; deal registration and rules of engagement; private offers and CPPO; committed-spend burn-down; co-sell; joint business plan; QBR; rate card; MDF; SPIF; transfer price versus net revenue share; bundle-discount allocation; minimum royalty floor; capacity commitment; contra revenue; partner P&amp;L; cost per partner-sourced euro; retire-and-add; per-workload ownership; cohort gate; partner-served deployment; sovereign cloud; GSI, RSI, ISV, MSP, OEM-in, OEM-out.</p>
 
       <h3>The one-line pitch</h3>
       <div class="box">
-        <p>"I build the operating system under a partner business. At my last two companies I turned a handful of alliance relationships into a programme with a rate card, deal registration, marketplace transactions and a partner-sourced number Finance signed off on. Mistral has just signed the biggest partnerships in European AI and is hiring the field team this month. The operations layer under that is exactly what I know how to build, fast."</p>
+        <p>"I put the numbers under a partner business. At Confluent I ran GTM finance for the whole field, including the partner organisation Kamal led, through a bookings-to-consumption transformation: I issued the annual plan, designed the comp, wrote the attribution and crediting policies and defended them with the CFO and the field, and structured the OEM, revenue-share and marketplace deals so they paid. Mistral has just signed the biggest partnerships in European AI. The req asks for someone who has built the plan, priced the deals and defended the numbers. That is the job I did, next to the person this role reports to."</p>
       </div>
     </section>
 
     <section id="shapes">
-      <h2><span class="num">07</span>Story shapes to bring</h2>
-      <p class="sub">Ten experience shapes. Each has placeholder background to rewrite with your real history. Tick the ones you already have.</p>
-      <p>Every story should have the same skeleton: the situation in two sentences, the decision you made, what you built, one or two numbers, and what you would do differently. Keep each under two minutes spoken.</p>
+      <h2><span class="num">08</span>Your ten stories</h2>
+      <p class="sub">Real record, not placeholders. Each is built from your résumé and the OpenAI prep notes; dashed chips mark what only you can fill.</p>
+      <p>Same skeleton every time: the situation in two sentences, the decision you personally owned, what it protected or produced, one or two numbers, what you would do differently. Under two minutes spoken. Volunteer the ownership boundary once per story: which call was yours, which was leadership's, which was the team's.</p>
 
       <div class="shape" data-id="s1">
-        <div class="head"><h3>1. Built partner operations from zero</h3><label><input type="checkbox"> I have this story</label></div>
+        <div class="head"><h3>1. The partner P&amp;L and plan under Kamal</h3><label><input type="checkbox"> Ready to tell</label></div>
         <div class="body">
-          <div class="row"><div class="k">Shape</div><div class="v"><p>You joined a company with a new or newly serious partner leader, no programme, no systems, and pressure to show partner revenue within a few quarters. You built the minimum viable operating model and grew it.</p></div></div>
-          <div class="row"><div class="k">Example</div><div class="v story"><p><b>Placeholder.</b> At a 600-person data-infrastructure company growing about 80% a year, I was the first partner operations hire, brought in three months after a new SVP of Partnerships arrived. There were eleven alliance relationships tracked in a spreadsheet and no way to say what they were worth. In the first quarter I wrote the programme guide, defined three tiers, put deal registration into Salesforce with a two-day approval SLA, and moved the SVP's weekly review onto a single dashboard. By the end of year one we had 140 onboarded partners, 38 activated, and partner-sourced pipeline of about 18% of new business, up from an unmeasured baseline.</p></div></div>
-          <div class="row"><div class="k">Numbers</div><div class="v"><ul><li>Partners onboarded vs activated</li><li>Partner-sourced share of pipeline or bookings</li><li>Time to ship version one</li></ul></div></div>
-          <div class="row"><div class="k">Answers</div><div class="v"><p>"Tell me about a time you built something from nothing." "What would your first 90 days here look like?" "How do you prioritise when everything is missing?"</p></div></div>
+          <div class="row"><div class="k">Setup</div><div class="v"><p>VP GTM Finance, executive finance partner to the President over Field Sales, Customer Success and Partner Ecosystems: ~$400M budget, 1,000+ heads. Kamal ran the partner business. You took over large parts of partner operations' finance and planning: the partner plan inside the annual GTM plan, what the partner org was judged on, and the economics of its deals.</p></div></div>
+          <div class="row"><div class="k">Decisions you owned</div><div class="v"><ul><li>The judgment metric: partner-sourced, not influenced, as the number the partner org was held to. Definitions agreed at planning, outliers and limitations discussed upfront, so disputes happened before the year, not after a miss.</li><li>Incentive levels calibrated against what competitors and cohort companies paid, then constrained against Confluent's own margin.</li><li>The OEM-rep initiative as a named, priced layer in the plan (the 25% = 20% + 5% year).</li></ul></div></div>
+          <div class="row"><div class="k">Lineage</div><div class="v"><p>This is not new for you. At Symantec you were business partner to the VPs of Channel and Sales Ops, found under-investment in the commercial segment, and redirected partner-programme incentives toward smaller accounts, raising channel-spend ROI by 30%.</p></div></div>
+          <div class="row"><div class="k">Fill</div><div class="v"><p><span class="gap">Partner budget and headcount inside the $400M</span><span class="gap">Partner-sourced share of new business, before and after</span><span class="gap">The partner-plan artefacts by name</span><span class="gap">KPMG alliance: what it was, what worked</span></p></div></div>
+          <div class="row"><div class="k">Answers</div><div class="v"><p>"Tell me about your partner experience." "How do you value partner contribution?" "How would you build the partner P&amp;L?"</p></div></div>
         </div>
       </div>
 
       <div class="shape" data-id="s2">
-        <div class="head"><h3>2. Deal registration and rules of engagement that direct sales accepted</h3><label><input type="checkbox"> I have this story</label></div>
+        <div class="head"><h3>2. The annual GTM plan, issued before the year opened</h3><label><input type="checkbox"> Ready to tell</label></div>
         <div class="body">
-          <div class="row"><div class="k">Shape</div><div class="v"><p>You designed or rewrote the policy for who gets credit, got it through Sales leadership, and enforced it through the CRM. Include a conflict you had to adjudicate.</p></div></div>
-          <div class="row"><div class="k">Example</div><div class="v story"><p><b>Placeholder.</b> Direct reps were routinely closing deals that an SI had opened, and the SI's regional lead threatened to move their practice to a competitor. I drafted RoE with a 90-day registration window, a "first to register with a named contact and a documented use case" rule, and a neutral compensation policy so reps were paid the same on partner-transacted deals. I ran it through the CRO and Finance in three weeks, then built the approval flow so a registration could not be approved without a named account executive acknowledging it. Disputes fell from roughly one a week to one a month, and the SI doubled its registrations over the following two quarters.</p></div></div>
-          <div class="row"><div class="k">Numbers</div><div class="v"><ul><li>Registration approval time</li><li>Dispute volume before and after</li><li>Registration growth from key partners</li></ul></div></div>
-          <div class="row"><div class="k">Answers</div><div class="v"><p>"How do you handle channel conflict?" "Our direct team is strong and sceptical of partners. What do you do?" "Tell me about a time you had to be the referee."</p></div></div>
+          <div class="row"><div class="k">Setup</div><div class="v"><p>The req's second "who you are" bullet, literally. You built the field's plan end to end: topline, coverage, quota and comp, and issued it before the fiscal year.</p></div></div>
+          <div class="row"><div class="k">Mechanism</div><div class="v"><p>Baseline first: model the business with nothing new, on its real mechanics (workloads ramp then steady; outliers excluded by rule agreed before the numbers). Then initiatives layered with a named owner, expected delta and date, split into pipeline versus conversion. Then new product. Capacity turns into pipeline at measured conversion; every close starts an adoption curve fit to cohorts. Cadence: exec weeklies by initiative with eStaff, monthly forecast review at eStaff, QBRs in the field, retros at eStaff.</p></div></div>
+          <div class="row"><div class="k">The worked year</div><div class="v"><p>Corporate needed 25% growth. You arrived with 20% of confidence plus 5% of named, priced initiatives (more OEM reps, Federal investment). The gap was named and assigned, never smeared into quotas. Free PS in APAC was one initiative with a leader; you uplifted the APAC revenue goal to hold total margin (product ~80% gross margin, PS ~10%).</p></div></div>
+          <div class="row"><div class="k">Accountability</div><div class="v"><p>Theatre leaders agreed the leading indicators and expected conversion. The Digital Native leader argued the numbers after agreeing them, then missed, and was removed. Sales-attributed ARR ran as the forecast's leading indicator alongside PLG.</p></div></div>
+          <div class="row"><div class="k">The cut</div><div class="v"><p>30+ points of expense-to-revenue out while revenue compounded ~32% (under $400M to ~$1.2B). Zero-based, self-funded initiatives. Stopped backfilling AEs; dismantled the centralised acquisition org; moved geographic dollars from Japan to APAC and Brazil on momentum.</p></div></div>
+          <div class="row"><div class="k">Answers</div><div class="v"><p>"Build me the annual partner plan." "How do you set targets and hold people to them?" "You owned a budget that got cut: what did you trade?"</p></div></div>
         </div>
       </div>
 
       <div class="shape" data-id="s3">
-        <div class="head"><h3>3. Marketplace transactions and private offers</h3><label><input type="checkbox"> I have this story</label></div>
+        <div class="head"><h3>3. Attribution net of organic, and the crediting policy the field accepted</h3><label><input type="checkbox"> Ready to tell</label></div>
         <div class="body">
-          <div class="row"><div class="k">Shape</div><div class="v"><p>You listed a product on a hyperscaler marketplace, set up private-offer operations, and made marketplace a meaningful share of bookings. Include the reconciliation and finance side.</p></div></div>
-          <div class="row"><div class="k">Example</div><div class="v story"><p><b>Placeholder.</b> We had an AWS Marketplace listing nobody used. I built the private-offer desk: a request form for account executives, a discount approval matrix aligned to the existing deal desk, and a 24-hour turnaround target. I worked with Finance on how marketplace fees and payout timing hit revenue recognition, and with the cloud's partner development manager on co-sell incentives for their reps. Marketplace went from under 2% of bookings to 23% in five quarters, and average close time on marketplace deals was about 30% shorter because customers were burning down committed spend.</p></div></div>
-          <div class="row"><div class="k">Numbers</div><div class="v"><ul><li>Marketplace share of bookings</li><li>Private-offer turnaround time</li><li>Cycle-time difference vs direct</li></ul></div></div>
-          <div class="row"><div class="k">Answers</div><div class="v"><p>"How would you make the Microsoft deal real operationally?" "What is your experience with Azure or AWS Marketplace?" "How do you think about cloud partners who also compete with us?"</p></div></div>
+          <div class="row"><div class="k">Setup</div><div class="v"><p>In a consumption business you lose the link between a transaction and its value. Attribution stops being a measurement and becomes an estimate, so it must be paired with a cadence.</p></div></div>
+          <div class="row"><div class="k">The mechanism</div><div class="v"><p>The AE names the use case; the SE sizes it and drives it to production; credit is the account's measured growth minus its cohort-expected trajectory (segment, vintage, workload mix). Forecast engine: baseline + organic growth + sales-attributed consumption, less consolidations. You did not invent the metric; you built it into planning with a quarterly plan per theatre and measured it in the forecast every day. Cohort reporting across >20,000 logos to the $20K consumption gate was the calibration data.</p></div></div>
+          <div class="row"><div class="k">The crediting decision</div><div class="v"><p>Sales leadership wanted an OEM-sourced deal credited to both the OEM motion and the rep whose territory it landed in. You refused: double-crediting books one dollar against two quota lines, inflates attainment, sets next year's quotas off a fiction, and raises commission cost with no revenue. Your alternative, offered in the same breath: retire-and-add, so the AE who retires OEM quota gets matching quota added. Sales leadership later defended the call as protecting them.</p></div></div>
+          <div class="row"><div class="k">Disputes</div><div class="v"><p>Moved from booking dates to "I was given the wrong baseline." Each researched one by one; relief where appropriate. That is what a defended policy looks like.</p></div></div>
+          <div class="row"><div class="k">The transplant</div><div class="v"><p>A partner influences usage it never transacts: same counterfactual. Partner registers the use case, deployment is tracked, credit accrues net of the expected line, quarterly true-ups, a dispute forum. It ranks well enough to tell you which partners to invest in and which are riding organic growth.</p></div></div>
+          <div class="row"><div class="k">Fill</div><div class="v"><p><span class="gap">OEM story setup: which partner, which product, who wanted double-credit</span></p></div></div>
+          <div class="row"><div class="k">Answers</div><div class="v"><p>"Have you written a crediting policy and defended it?" "How would you define partner-influenced so Finance signs it?" "How do you handle a partner and a rep claiming the same growth?"</p></div></div>
         </div>
       </div>
 
       <div class="shape" data-id="s4">
-        <div class="head"><h3>4. An attribution model Finance signed off</h3><label><input type="checkbox"> I have this story</label></div>
+        <div class="head"><h3>4. Infosys: the OEM-plus-services structure you designed</h3><label><input type="checkbox"> Ready to tell</label></div>
         <div class="body">
-          <div class="row"><div class="k">Shape</div><div class="v"><p>You defined sourced, influenced and transacted so rigorously that Finance accepted the numbers for board reporting, and you made the definitions self-enforcing in the systems.</p></div></div>
-          <div class="row"><div class="k">Example</div><div class="v story"><p><b>Placeholder.</b> The partner team claimed 60% of revenue was "partner-influenced" and the CFO refused to put it in the board deck. I rebuilt the definitions: sourced required a registration before any opportunity existed; influenced required a logged partner activity of a specific type before stage three. I made the CRM require the activity record to set the flag. The influenced number fell to 31%, the sourced number was 14%, and both went into the board pack because the CFO could audit them. The partner leader initially hated it and later used the conservative numbers to win budget for two more partner managers.</p></div></div>
-          <div class="row"><div class="k">Numbers</div><div class="v"><ul><li>Sourced and influenced shares</li><li>Before and after the redefinition</li></ul></div></div>
-          <div class="row"><div class="k">Answers</div><div class="v"><p>"How do you measure partner success?" "How would you report partner revenue to our CFO?" "Tell me about a time you delivered a number your stakeholder did not want to hear."</p></div></div>
+          <div class="row"><div class="k">Setup</div><div class="v"><p>A GSI makes its money on services, so programme points do not move it. Confluent handed a large part of its services business to Infosys in exchange for a $50M OEM purchase commitment. You led the design.</p></div></div>
+          <div class="row"><div class="k">What the story carries</div><div class="v"><p>This is the req's "OEM or embedded, co-development, capacity" bullet in one deal: a services-capacity trade, an OEM purchase commitment, and the finance mechanics underneath (you worked with accounting to amortise the Infosys expense so the quarterly comp plan could work: "I own the portfolio and I will do what it takes to make it work").</p></div></div>
+          <div class="row"><div class="k">The principle</div><div class="v"><p>Pay a GSI in deployment opportunity, not points. And the companion, Oracle CDC (OEM-in): $1.3M paid upfront for capability that never returned. One rule under both: pay for partner value on realisation, variable over fixed. Confluent carried the fixed commitment and the partner carried none.</p></div></div>
+          <div class="row"><div class="k">Fill</div><div class="v"><p><span class="gap">Term and structure of the $50M commitment</span><span class="gap">How the services transfer was valued</span><span class="gap">Outcome: burn-down against the commitment, what you would change</span><span class="gap">Which OEM deals "saved the year" and which were not good for Confluent, and why</span></p></div></div>
+          <div class="row"><div class="k">Answers</div><div class="v"><p>"Walk me through a non-standard deal you structured." "How would you pressure-test the Cloudera or Accenture economics?" "How do you engage a GSI like Accenture?"</p></div></div>
         </div>
       </div>
 
       <div class="shape" data-id="s5">
-        <div class="head"><h3>5. Enablement and certification at SI scale</h3><label><input type="checkbox"> I have this story</label></div>
+        <div class="head"><h3>5. SAP Solex: revenue share on someone else's paper</h3><label><input type="checkbox"> Ready to tell</label></div>
         <div class="body">
-          <div class="row"><div class="k">Shape</div><div class="v"><p>You stood up the system for certifying partner engineers and sellers at a large SI, tracked it, and tied it to commercial outcomes.</p></div></div>
-          <div class="row"><div class="k">Example</div><div class="v story"><p><b>Placeholder.</b> A global SI committed to 2,000 certified engineers in a year and we had a slide deck and no exam. I chose a learning platform the partner could integrate with, worked with solutions engineering on a two-level certification that could be revised each product release, set up a sandbox with per-partner spend caps, and reported certifications by region against registered deals. We hit 1,700 certifications; more importantly, regions with more than 50 certified engineers registered four times as many deals as those without.</p></div></div>
-          <div class="row"><div class="k">Numbers</div><div class="v"><ul><li>Certified headcount vs target</li><li>Correlation to registrations or pipeline</li><li>Sandbox cost control</li></ul></div></div>
-          <div class="row"><div class="k">Answers</div><div class="v"><p>"Accenture and TCS have committed to training thousands of people on Mistral. How do you operationalise that?" "How do you keep enablement current when the product changes every quarter?"</p></div></div>
+          <div class="row"><div class="k">Setup</div><div class="v"><p>SAP's solution-extensions channel: your product on SAP's price list, sold by SAP sellers on SAP paper, for a steep share. SAP wanted 50%; Confluent could reach 40% at most; the CEO would not look at it. Deals were modelled on SAP's typical sizes; they came fewer and smaller, and the share had to be ratcheted up just to clear SAP's engagement threshold.</p></div></div>
+          <div class="row"><div class="k">The decision you owned</div><div class="v"><p>Hold the margin line by narrowing the aperture rather than killing the programme: get specific about which use cases flow through Solex, because only some survive that ratio. Bridge the impasse with partner-specific list pricing and partner SKUs to find a blended position. Your honest position: "I didn't think the structure worked in general. I thought specific use cases could work, and that's what we did."</p></div></div>
+          <div class="row"><div class="k">The finance half</div><div class="v"><p>Three terms decide whether an OEM-out deal hurts you: share of net revenue versus transfer price; how bundle discount is allocated across line items (your line absorbs a disproportionate share because it is the component SAP has least attachment to); and the floor, which makes small deals worse than proportionally bad. Plus the conflict edge: your own reps could discount deeper than the Solex price.</p></div></div>
+          <div class="row"><div class="k">The programme edge</div><div class="v"><p>The standing partner discount was incremental (about 12%, off standard deal-desk guidance) and uncompetitive against a real SI-led deal. You used Data Reply's CARIAD deal as the example and convinced the CEO to change it: thresholds above $1M earned higher flexibility, low-end deals went to a deal-desk flow, partner managers focused on the high end.</p></div></div>
+          <div class="row"><div class="k">Never say</div><div class="v"><p>A specific Solex percentage. Describe the shape. Kamal has seen the real Solex economics, and a wrong specific makes the story sound reconstructed.</p></div></div>
+          <div class="row"><div class="k">Answers</div><div class="v"><p>"How do you think about margin dilution?" "Tell me about a partner bet that disappointed." "How would you set pricing precedent for partner deals?"</p></div></div>
         </div>
       </div>
 
       <div class="shape" data-id="s6">
-        <div class="head"><h3>6. Programme design: tiers, incentives and funds</h3><label><input type="checkbox"> I have this story</label></div>
+        <div class="head"><h3>6. Marketplaces: CPPO readiness, first-party listings, and why listing is not distribution</h3><label><input type="checkbox"> Ready to tell</label></div>
         <div class="body">
-          <div class="row"><div class="k">Shape</div><div class="v"><p>You designed or redesigned tiers, margins, referral fees, MDF or credits, and can explain the economics and the behaviour change. Bonus if the product was open source or could be run without paying you, because that mirrors open weights.</p></div></div>
-          <div class="row"><div class="k">Example</div><div class="v story"><p><b>Placeholder.</b> Our open-source product meant partners could deploy the community edition and never pay us. I redesigned the programme so tiers were earned on registered and closed commercial revenue, not on logos or downloads, and put MDF behind a plan-and-claim process with a 60-day proof window. Referral fees were set at 10% for the first year and 5% on renewals; resale margin at 20% for Premier. MDF claims that could not be evidenced fell from about 40% to under 10%, and commercial conversions from partner-led community deployments roughly doubled.</p></div></div>
-          <div class="row"><div class="k">Numbers</div><div class="v"><ul><li>Rate card values and why</li><li>MDF utilisation and audit rate</li><li>Tier movement over a year</li></ul></div></div>
-          <div class="row"><div class="k">Answers</div><div class="v"><p>"Many of our models are open-weight. How do you build a partner programme around a product a partner could run for free?" "How would you structure incentives for a sovereign cloud vs a GSI?"</p></div></div>
+          <div class="row"><div class="k">Setup</div><div class="v"><p>As Sr. Director of Sales Productivity Strategy &amp; Programs you readied the organisation and product to launch AWS CPPO reseller sell-through, and you led the Confluent marketplace initiative: first-party listings on AWS, GCP and Azure transacting through the customer's cloud account.</p></div></div>
+          <div class="row"><div class="k">The mechanics you hold cold</div><div class="v"><p>Customer appeal is commit burn-down against budget already approved; yours is procurement velocity. AWS takes a fee; a CPPO partner keeps the spread; you trade points for velocity. Finance side: how fees and payout timing hit recognition.</p></div></div>
+          <div class="row"><div class="k">The lesson</div><div class="v"><p>Being listed on a marketplace is not the same as being distributed by one. AWS sells MSK, its own Kafka; if the AWS rep is paid X for MSK you match it in some form or the rep never says your name. Mistral's version: Microsoft sells OpenAI, Google sells Gemini. A partner needs both the technical reason to recommend you and the incentive to say your name in the same breath as the alternative.</p></div></div>
+          <div class="row"><div class="k">Fill</div><div class="v"><p><span class="gap">Marketplace share of bookings, then and later</span><span class="gap">CPPO outcome: partners enabled, first transactions, cycle-time difference</span><span class="gap">What the marketplace initiative changed in deal desk</span></p></div></div>
+          <div class="row"><div class="k">Answers</div><div class="v"><p>"How would you make the Microsoft deal real operationally?" "What is your Azure or AWS marketplace experience?" "How do you handle cloud partners who compete with us?"</p></div></div>
         </div>
       </div>
 
       <div class="shape" data-id="s7">
-        <div class="head"><h3>7. Tooling: PRM and CRM without a big-bang</h3><label><input type="checkbox"> I have this story</label></div>
+        <div class="head"><h3>7. Pricing precedent and guardrails that did not slow the business</h3><label><input type="checkbox"> Ready to tell</label></div>
         <div class="body">
-          <div class="row"><div class="k">Shape</div><div class="v"><p>You chose and implemented a partner portal or rebuilt the partner data model in the CRM, on a small budget, with a phased rollout. Include the data hygiene problem you inherited.</p></div></div>
-          <div class="row"><div class="k">Example</div><div class="v story"><p><b>Placeholder.</b> Partner data lived in four places and none matched. I built the partner account hierarchy and deal-registration object in Salesforce first, using native features, then chose a PRM after six months of knowing what partners actually needed (registration, training, MDF claims, in that order). I ran the PRM implementation in twelve weeks with one admin and a contractor, migrating only active partners, which cut the dataset from 900 records to 210 real ones. Partner-manager time spent on manual reporting fell by about a third.</p></div></div>
-          <div class="row"><div class="k">Numbers</div><div class="v"><ul><li>Implementation time and cost</li><li>Data quality before and after</li><li>Time saved for the field</li></ul></div></div>
-          <div class="row"><div class="k">Answers</div><div class="v"><p>"What tools would you bring in and when?" "Salesforce or something else?" "How do you avoid an expensive PRM nobody uses?"</p></div></div>
+          <div class="row"><div class="k">Palo Alto Networks</div><div class="v"><p>Director of Pricing Strategy: set pricing for every new product release, 10+ models across SaaS and hardware, gross-margin models behind major decisions. Designed and enforced the company-wide pricing-proposal framework and discounting policies, including removing built-in multi-year discounts in legacy SKUs to recover $40M.</p></div></div>
+          <div class="row"><div class="k">Confluent deal desk</div><div class="v"><p>At first you reviewed everything and slowed the business and yourselves. You found most deals had MSAs declaring payment terms; created an auto-approval policy with Sales Ops (sub-$100K, no exceptions) so review volume went to deals above $100K. Renewals auto-uplifted 5% with some negotiable away via shorter payment terms. The next step you named: discount elasticity tied to cash timing (net-45 annual versus net-90 monthly), made nearly self-serve for AEs.</p></div></div>
+          <div class="row"><div class="k">The reset</div><div class="v"><p>List prices sat at roughly 6× AWS in places; partners looked at list and concluded you would never come down enough to be worth positioning. Storage reset from ~6× to ~2×, compute to ~1×; top-of-funnel demand rose measurably. Three anchors for any price: cost-plus floor, competitive range, willingness to pay.</p></div></div>
+          <div class="row"><div class="k">For Mistral</div><div class="v"><p>Reference structures per deal type with a small number of negotiable variables and a pre-approved fallback for each, so a new agreement is shaped against precedent. Guardrails carry a turnaround target; a slow guardrail gets routed around.</p></div></div>
+          <div class="row"><div class="k">Answers</div><div class="v"><p>"How would you establish pricing precedent for partner agreements?" "How do you keep Legal and Finance from being the bottleneck?" "High bar without slowing the business?"</p></div></div>
         </div>
       </div>
 
       <div class="shape" data-id="s8">
-        <div class="head"><h3>8. Operationalising a strategic alliance</h3><label><input type="checkbox"> I have this story</label></div>
+        <div class="head"><h3>8. Free PS in APAC with Kamal: delivery capacity, accountability, changed mind</h3><label><input type="checkbox"> Ready to tell</label></div>
         <div class="body">
-          <div class="row"><div class="k">Shape</div><div class="v"><p>An executive signed a large partnership with commitments inside it (credits, funded POCs, joint plans, headcount). You turned the press release into a tracked operating plan and a QBR.</p></div></div>
-          <div class="row"><div class="k">Example</div><div class="v story"><p><b>Placeholder.</b> Our CEO signed a strategic deal with a hyperscaler that included $3M of customer credits and joint account planning across 40 named accounts. Nobody owned the follow-through. I built the joint business plan template, a credit-request and burn-down tracker, a shared account-mapping view with the cloud's partner team, and a quarterly review with both executive sponsors. In the first year we consumed 80% of the credits against 26 proofs of concept, 11 of which converted, and the cloud partner renewed the programme at twice the credit budget.</p></div></div>
-          <div class="row"><div class="k">Numbers</div><div class="v"><ul><li>Credit utilisation</li><li>POC to closed conversion</li><li>Joint-account pipeline</li></ul></div></div>
-          <div class="row"><div class="k">Answers</div><div class="v"><p>"Microsoft committed funded POCs, Azure credits and joint GTM planning. What do you do in month one?" "How do you run a QBR with a partner a hundred times your size?"</p></div></div>
+          <div class="row"><div class="k">Setup</div><div class="v"><p>Consumption in APAC needed unlocking. Kamal wanted to make professional services free to drive deployment. You were unsure. The CFO was against it. You read that what the CFO actually wanted was accountability.</p></div></div>
+          <div class="row"><div class="k">The decision you owned</div><div class="v"><p>Got Kamal to agree to raise his revenue goal so that APAC Sales plus APAC PS carried the same revenue and margin requirement as before. Then tracked it at the pipeline level: which opportunities, were they incremental, what size. Consumption came in at plan. It succeeded, which prompted your broader analysis of how PS contributes to consumption and led you to push PS targets up against the peer benchmark of PS as a share of revenue.</p></div></div>
+          <div class="row"><div class="k">Why it matters here</div><div class="v"><p>It is the req's "model the delivery capacity the plan requires" and "drive partner performance against commitments" in one story, and it is the story Kamal will remember. Tell it his way: he was right; your contribution was the accountability structure and the evidence.</p></div></div>
+          <div class="row"><div class="k">Answers</div><div class="v"><p>"Tell me about a time you and I disagreed." "Tell me about changing your mind with evidence." "How do you fund deployment capacity for partners?"</p></div></div>
         </div>
       </div>
 
       <div class="shape" data-id="s9">
-        <div class="head"><h3>9. Cross-functional conflict and influence without authority</h3><label><input type="checkbox"> I have this story</label></div>
+        <div class="head"><h3>9. The direct-sales operator: productivity, enablement, the neutral-party credential</h3><label><input type="checkbox"> Ready to tell</label></div>
         <div class="body">
-          <div class="row"><div class="k">Shape</div><div class="v"><p>You needed Finance, Legal, Product or Sales to change something for the partner business, they did not report to you, and you got it done.</p></div></div>
-          <div class="row"><div class="k">Example</div><div class="v story"><p><b>Placeholder.</b> Legal took eight weeks on every reseller agreement because each was bespoke. I sat with the deputy general counsel, catalogued the 14 clauses that actually varied across the last 20 agreements, and proposed a template with five negotiable variables and a pre-approved fallback for each. Legal owned the template, I owned the intake form. Turnaround dropped to under two weeks and Legal stopped seeing partner deals as a burden.</p></div></div>
-          <div class="row"><div class="k">Numbers</div><div class="v"><ul><li>Cycle time before and after</li><li>Volume handled with the same headcount</li></ul></div></div>
-          <div class="row"><div class="k">Answers</div><div class="v"><p>"Tell me about a time you changed how another team works." "How do you work with Legal and Finance?" "Mistral needs bespoke sovereign-cloud agreements. How do you keep that from becoming a bottleneck?"</p></div></div>
+          <div class="row"><div class="k">Confluent, 2021 to 2022</div><div class="v"><p>Sr. Director, Sales Productivity Strategy &amp; Programs: identified and cross-functionally drove GTM productivity initiatives across Product, Marketing and Sales. Designed and ran the at-risk account programme (100+ migrations from low-value to stickier products), led the global Digital Native segment programme, launched AE productivity dashboards from ramp to tenure to attrition, and readied CPPO.</p></div></div>
+          <div class="row"><div class="k">Palo Alto Networks</div><div class="v"><p>Head of GTM strategy for Strata (&gt;$2B run-rate, 2,500+ reps); interim GTM leader for the ~$1B firewall business uniting marketing, product and field behind one plan; built the global accounts programme; identified sales-incentive design as the root cause of a product slowdown and changed the following year's comp.</p></div></div>
+          <div class="row"><div class="k">The resourcing call</div><div class="v"><p>AE productivity was 80/20; later cohorts never reached consistent productivity. Same segment, seven reps with three SEs beat seven with two on median productivity. You stopped backfilling AEs and pointed the budget at SEs and FDEs. Capacity is a portfolio: reallocate before you request.</p></div></div>
+          <div class="row"><div class="k">Why it matters here</div><div class="v"><p>The req wants someone credible as the neutral party between direct and partner. You have run programmes for the direct field and been its finance partner; you are not a channel person asking the field to share.</p></div></div>
+          <div class="row"><div class="k">Answers</div><div class="v"><p>"Our direct team is strong and sceptical of partners." "How do you decide where the next resource goes?" "What do you know about enablement?"</p></div></div>
         </div>
       </div>
 
       <div class="shape" data-id="s10">
-        <div class="head"><h3>10. Speed, ambiguity and international scale</h3><label><input type="checkbox"> I have this story</label></div>
+        <div class="head"><h3>10. Quota and compensation redesign, with its cost</h3><label><input type="checkbox"> Ready to tell</label></div>
         <div class="body">
-          <div class="row"><div class="k">Shape</div><div class="v"><p>You operated through hypergrowth or a pivot, made decisions with incomplete information, and worked across Europe and the US (or Europe and Asia) with different partner cultures and regulations.</p></div></div>
-          <div class="row"><div class="k">Example</div><div class="v story"><p><b>Placeholder.</b> When the company opened EMEA, I inherited a US-designed programme that assumed one language, one contracting entity and one marketplace. Within two quarters I added a European contracting entity path, localised the tier requirements for smaller regional SIs, set up DACH and France partner councils, and adjusted the MDF process for VAT and local event norms. EMEA partner-sourced pipeline reached the US level within 18 months on a third of the headcount.</p></div></div>
-          <div class="row"><div class="k">Numbers</div><div class="v"><ul><li>Time to regional parity</li><li>Headcount efficiency</li></ul></div></div>
-          <div class="row"><div class="k">Answers</div><div class="v"><p>"We are French, 60% European, and expanding in the US. What changes about the programme by region?" "Tell me about a time you had to decide without enough information."</p></div></div>
+          <div class="row"><div class="k">Setup</div><div class="v"><p>KPIs were denominated in bookings while revenue was denominated in usage; a top-line miss became the forcing function. Changing the KPI changes the report; changing the comp plan changes the behaviour.</p></div></div>
+          <div class="row"><div class="k">Decisions you owned</div><div class="v"><ul><li>Framed the decision for the CEO with fully costed alternatives (annualised incremental consumption, total consumption, inflection; annual versus quarterly).</li><li>Vetoed total consumption on incrementality: it pays for the installed base that arrives anyway and buys no behaviour change.</li><li>Sized the consumption weighting to what the maturing commission base freed up: 50% on SEs, phased for AEs, commissions-to-revenue held flat.</li></ul></div></div>
+          <div class="row"><div class="k">What happened</div><div class="v"><p>Year one: attrition rose from ~21% to ~31% annualised; zero-commit lands exploded and many never converted; bookings dropped; second-half quota reductions and ACV and consumption SPIFs; OEM deals carried the year. Year two: consumption to 50% for the AEs who mattered, ACV revived with SE-approved sizing, sales-attributed ARR as the unit so the AE is oriented to a use case. A scheduled six-month re-cut is discipline; a mid-year rip-up is an admitted mistake.</p></div></div>
+          <div class="row"><div class="k">For partners</div><div class="v"><p>Whatever you pay on must be measurable at the account level within the quarter you pay it. Pay for the thing you want compounding, not the thing that is easiest to count.</p></div></div>
+          <div class="row"><div class="k">Answers</div><div class="v"><p>"Design the partner-facing comp plan." "Walk me through a comp change you designed and what it cost." "How do you set quota for a partner manager?"</p></div></div>
         </div>
       </div>
     </section>
 
     <section id="questions">
-      <h2><span class="num">08</span>Question bank</h2>
-      <p class="sub">Likely questions, with the shape of a strong answer and which story it draws on.</p>
+      <h2><span class="num">09</span>Question bank</h2>
+      <p class="sub">Likely questions, the plain opener to say and then stop, and the story it draws on.</p>
 
-      <div class="qa"><p class="q">Explain partner operations to me as if I run engineering.</p><p class="a">Engineering ships the model; partners are the distribution network; ops is the API contract between Mistral and that network: rules, systems, money, data. Then one concrete example of what breaks without it.<span class="ref">101</span></p></div>
-      <div class="qa"><p class="q">What would you do in your first 90 days?</p><p class="a">Listen for 30 days (partner managers, Finance, Legal, the cloud PM, three partners), publish a programme v1 and RoE by day 60, have deal registration and a partner dashboard live by day 90, with the Microsoft commitments tracked. Name what you deliberately defer.<span class="ref">Story 1, 8</span></p></div>
-      <div class="qa"><p class="q">How do you avoid conflict between partners and our forward-deployed teams?</p><p class="a">RoE, registration window, neutral comp, escalation SLA, published scorecard. Then the story of a conflict you adjudicated.<span class="ref">Story 2</span></p></div>
-      <div class="qa"><p class="q">What does a good partner programme look like for an open-weight model company?</p><p class="a">Tiers earned on commercial outcomes not downloads; monetise the things partners cannot get for free (support, Studio, Forge, Compute, enterprise features, indemnity); track community deployments as pipeline, not as leakage.<span class="ref">Story 6</span></p></div>
-      <div class="qa"><p class="q">How would you measure whether the Microsoft partnership is working?</p><p class="a">Credit burn-down and POC conversion, marketplace bookings via Azure, co-sell registrations from Microsoft sellers, joint-account pipeline coverage, and one qualitative signal: are Microsoft's sovereignty sellers leading with Mistral in regulated accounts.<span class="ref">Story 3, 8</span></p></div>
-      <div class="qa"><p class="q">How do you report partner revenue to the CFO?</p><p class="a">Three numbers, defined in writing, enforced in the CRM, reconciled monthly: sourced, influenced, transacted. Sourced deliberately conservative.<span class="ref">Story 4</span></p></div>
-      <div class="qa"><p class="q">Which tools would you buy, and when?</p><p class="a">CRM first, natively, in the first quarter. Marketplace tooling as soon as private-offer volume justifies it. PRM only after you know the three things partners actually do in it. Account-mapping tool once you have more than a handful of co-sell partners.<span class="ref">Story 7</span></p></div>
-      <div class="qa"><p class="q">How do you enable a GSI that has committed to thousands of certifications?</p><p class="a">Versioned two-level certification, train-the-trainer, capped sandbox, certification-to-registration metric.<span class="ref">Story 5</span></p></div>
-      <div class="qa"><p class="q">How do sovereign-cloud partners differ from hyperscalers operationally?</p><p class="a">Smaller, slower, more bespoke, politically important, often no marketplace, so you need a template agreement, a direct billing path and a clear support handoff. They are where the sovereignty story becomes revenue.<span class="ref">Story 9</span></p></div>
-      <div class="qa"><p class="q">How big a team do you need?</p><p class="a">Small to start: you plus one analyst and one programme/marketplace operator in year one, adding enablement ops and a second analyst as partner-sourced revenue justifies it. Say the number and the trigger for the next hire.<span class="ref">Story 1</span></p></div>
-      <div class="qa"><p class="q">Why Mistral?</p><p class="a">Concrete: the partner-led pivot is real and recent, the SVP has done it before, the partnerships signed this year are the largest in European AI, and the operations layer under them is unbuilt. That is the exact moment a builder-operator is most valuable. Add one personal reason about sovereignty or Europe if true.</p></div>
+      <div class="qa">
+        <p class="q">Walk me through your background.</p>
+        <p class="a open">"I've spent the last five years running GTM finance for a public infrastructure company through a bookings-to-consumption transformation, as finance partner to the President over sales, customer success and the partner organisation Kamal led. I issued the annual plan, designed the comp, wrote the attribution and crediting policies, and structured the OEM, revenue-share and marketplace deals. Before that I ran sales productivity programmes, and at Palo Alto Networks GTM strategy and pricing."</p>
+        <p class="a">Thirty seconds, then stop. Resist the chronology.<span class="ref">Stories 1, 2</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">You haven't run a partner programme. Why this job?</p>
+        <p class="a open">"Correct, and I would hire for the programme administration first. What the req asks for is the plan, the deal economics and the number Finance signs, and that is what I did next to Kamal for years. The programme is the vehicle; the economics decide whether it carries revenue."</p>
+        <p class="a">The boundary, volunteered. Then one deal-structure story.<span class="ref">Stories 4, 5</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">How do you value partner contribution, and how would you defend it?</p>
+        <p class="a open">"Three numbers, defined in writing, enforced in the CRM. Sourced is deliberately the smallest and the one I plan against. Influenced is measured net of the account's own cohort-expected growth, because a partner influences usage it never transacts. Fulfilled is the paper. It's an estimate that ranks, so it comes with a cadence and a dispute forum, never sold as a receipt."</p>
+        <p class="a"><span class="ref">Story 3</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">How do you think about margin dilution from partners?</p>
+        <p class="a open">"In consumption, partner margin comes off a variable stream, so a discount doesn't cost once, it compounds with the customer's own growth. That's the argument for a bounty on influenced consumption or declining rates rather than a share of the whole stream. And the reframe: margin for capacity is a discount; margin for capability is an investment. The question is always which one we're buying."</p>
+        <p class="a"><span class="ref">Story 5</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">Pressure-test a revenue-share or OEM deal for me.</p>
+        <p class="a open">"Three terms before the headline percentage: is our share on net revenue or a transfer price, how is bundle discount allocated across line items, and what floor binds when volume disappoints. Then whether it's a stream or a one-time licence. Then who carries fixed cost: I'd rather pay on realisation than upfront. Solex taught me the first three; Oracle CDC taught me the last."</p>
+        <p class="a"><span class="ref">Stories 4, 5</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">What should a partner get paid on?</p>
+        <p class="a open">"Three options, three ecosystems. Pay on fulfilled revenue and you build resellers; on influenced consumption, practice-builders; on certified capacity, trainers. The right answer is whichever you're short of, and Mistral is short of deployment capacity. Guardrail: whatever you pay on has to be measurable at the account level within the quarter you pay it."</p>
+        <p class="a"><span class="ref">Problem 5</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">How do you avoid conflict between partners and our forward-deployed direct team?</p>
+        <p class="a open">"Name who owns the expansion motion per workload, not per account; an account can legitimately have a partner-led workload and a direct-led one. Pay direct sellers neutrally on partner-fulfilled deals with retire-and-add rather than double credit. And run a standing forum, because in consumption conflict is quarterly, not an exception."</p>
+        <p class="a"><span class="ref">Story 3, Problem 3</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">Build me the annual partner plan.</p>
+        <p class="a open">"Baseline first: what the installed partner book does if we change nothing, by cohort. Then sourced, influenced and fulfilled targets by motion, each with a named initiative, owner and date. Then the resourcing those initiatives need, priced. Reconcile to the top-down number in the open; a gap is named and assigned, never smeared into quotas. Issue it before the year opens and re-cut on an announced six-month cadence."</p>
+        <p class="a"><span class="ref">Story 2</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">How would you measure whether the Microsoft partnership is working?</p>
+        <p class="a open">"Credit burn-down and POC conversion, Azure marketplace bookings, registrations from Microsoft sellers, joint-account pipeline coverage, and one qualitative signal: are Microsoft's sovereignty sellers leading with Mistral in regulated accounts. And the honest one: whether Microsoft's reps are paid to say our name against the house model, because listing is not distribution."</p>
+        <p class="a"><span class="ref">Story 6</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">How would you know the partner programme is working, and how soon?</p>
+        <p class="a open">"Compare cohort progression of partner-sourced accounts against direct-sourced accounts at the same consumption gates. If partner lands don't progress, we're manufacturing activity, and I'd want to know in quarter two. I ran exactly this on a land motion we believed in and it told us we were wrong."</p>
+        <p class="a"><span class="ref">Problem 7</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">Cost per partner-sourced euro against direct: how would you build it?</p>
+        <p class="a open">"Split partner spend into deal-embedded economics, which self-fund under unit-economics floors, and capacity investment: partner managers, MDF, enablement, co-delivery hours, and the direct field time partner deals consume. The second bucket is the real envelope. Then an indirect and a direct P&amp;L that sum to total GTM cost with no double-counted capacity. If they don't tie out, the allocation is built on sand."</p>
+        <p class="a"><span class="ref">Doctrine 5</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">Many of our models are open-weight. How do you build partner economics around something a partner can run for free?</p>
+        <p class="a open">"Earn tiers on registered and closed commercial revenue, not logos or downloads. Monetise what partners cannot get free: Studio, Forge, Compute, support, indemnity. Track community deployments as pipeline, not leakage. Zero-commit lands at Confluent were the same shape: free that never converts is marketing spend, and it should be funded and measured as such."</p>
+      </div>
+      <div class="qa">
+        <p class="q">Tell me about a time we disagreed. <em>(Kamal)</em></p>
+        <p class="a open">"Free PS in APAC. You were sure, I wasn't, and the CFO was against it. What I heard from the CFO was that he wanted accountability, so I asked you to carry a higher combined revenue goal at the same margin, and then I tracked it at the pipeline level. It worked, and it changed how I think about services as a consumption driver."</p>
+        <p class="a"><span class="ref">Story 8</span></p>
+      </div>
+      <div class="qa">
+        <p class="q">Why are you leaving Confluent? Why now?</p>
+        <p class="a open">"We were acquired and the deal closed in March. The finance function I built is being folded into a much larger structure, which is the right outcome and a natural completion point. The next chapter there is integration; I'd rather build."</p>
+        <p class="a">Matter-of-fact, never aggrieved. Never criticise the acquirer or old leadership. Kamal knows the people.</p>
+      </div>
+      <div class="qa">
+        <p class="q">Why Mistral?</p>
+        <p class="a open">"Because the partner-led pivot is real and recent, the deals signed this year are the largest in European AI, and the economics layer under them is unbuilt. That is the exact moment a plan-and-numbers person is worth most. And because I've done this seam with Kamal before and I know what it produces when it works."</p>
+        <p class="a">Add one true personal reason about sovereignty or Europe if you have one.</p>
+      </div>
+      <div class="qa">
+        <p class="q">How big a team do you need?</p>
+        <p class="a open">"I don't start from team size. I start from scope and match capability, including what AI tooling now does. Year one: a programme-operations lead, then an analyst when partner-sourced revenue justifies it. Evidence assembly is increasingly software; the judgment calls stay human."</p>
+      </div>
+      <div class="qa">
+        <p class="q">What would you do in your first 90 days?</p>
+        <p class="a">Section 10. Three beats, and name what you defer.</p>
+      </div>
     </section>
 
     <section id="ninety">
-      <h2><span class="num">09</span>A first-90-days sketch to have in your pocket</h2>
-      <p class="sub">They will ask. Have it in three beats.</p>
+      <h2><span class="num">10</span>A first-90-days sketch to have in your pocket</h2>
+      <p class="sub">Three beats. If Mistral's fiscal year is the calendar year, the 2027 partner plan is due inside this window; confirm the planning calendar in the first conversation.</p>
       <div class="tablewrap"><table>
         <thead><tr><th>Days</th><th>Focus</th><th>Deliverables</th></tr></thead>
         <tbody>
-          <tr><td>1 to 30</td><td>Diagnose</td><td>Interview every partner manager, the cloud PM, Finance, Legal, Sales Ops, three partners (one cloud, one GSI, one sovereign). Inventory every signed commitment in the Microsoft, Accenture, TCS, Google and Cloudera agreements. Map every path money takes from a customer to Mistral. Write the one-page gap list.</td></tr>
-          <tr><td>31 to 60</td><td>Rules and money</td><td>Programme guide v1: types, tiers, benefits, obligations. Rules of engagement and deal-registration policy signed by the CRO and SVP. Rate card v1. Attribution definitions agreed with Finance. Microsoft commitment tracker live.</td></tr>
-          <tr><td>61 to 90</td><td>Systems and scoreboard</td><td>Deal registration in the CRM with an SLA. Partner dashboard: onboarded, activated, sourced, influenced, transacted, marketplace. Private-offer process. Sovereign-cloud agreement template with Legal. First QBRs scheduled. Hiring plan for two roles with triggers.</td></tr>
+          <tr><td>1 to 30</td><td>Diagnose and define</td><td>Interview Finance, the CRO, every partner manager, the cloud PM, Legal, and three partners (one cloud, one GSI, one sovereign). Find out which ledger the plan is held to and who signs partner-sourced today. Inventory every commitment inside the Microsoft, Accenture, TCS, Cloudera and Ericsson agreements, with owner and burn-down. Map every path money takes from a customer to Mistral. Draft the sourced, influenced and fulfilled definitions.</td></tr>
+          <tr><td>31 to 60</td><td>The number and the plan</td><td>Attribution framework signed by Finance and acknowledged by the CRO. Partner plan v1: targets by motion, named initiatives with owners, resourcing priced. Indirect-versus-direct P&amp;L skeleton. Reference structures for the three most common deal types, with negotiable variables and fallbacks agreed with Legal. Rules of engagement and retire-and-add crediting agreed with Sales.</td></tr>
+          <tr><td>61 to 90</td><td>Rails and cadence</td><td>Deal registration live in the CRM with an SLA. Partner forecast on the executive cadence: weekly ops, monthly review, quarterly planning. KPI scorecard per strategic partnership with attainment against what was agreed. Marketplace private-offer process. First QBRs scheduled. Hiring plan: programme-operations lead now, analyst on a stated revenue trigger.</td></tr>
         </tbody>
       </table></div>
-      <p>Deferred on purpose: PRM selection, MDF programme, partner advisory council, and any tier changes for existing strategic partners. Say so.</p>
+      <p><strong>Deferred on purpose:</strong> PRM selection, MDF programme design, partner advisory council, and tier changes for existing strategic partners. Say so.</p>
+      <p><strong>The first thing Kamal needs from you:</strong> the number the executive team plans against, and a plan he can defend to the CFO. Everything else follows from those two.</p>
     </section>
 
     <section id="ask">
-      <h2><span class="num">10</span>Questions to ask them</h2>
+      <h2><span class="num">11</span>Questions to ask them</h2>
       <p class="sub">Each one signals that you already think like the person in the job.</p>
       <ul>
-        <li>How is partner revenue defined and reported today, and who owns the number?</li>
-        <li>Of the commitments inside the Microsoft agreement, which are tracked, and by whom?</li>
-        <li>What share of bookings currently transacts through a marketplace, and which one?</li>
-        <li>How are direct sellers compensated on partner-transacted deals?</li>
+        <li>Which ledger is the partner plan held to today: recognised revenue, consumption run-rate, or bookings? And who signs the partner-sourced definition?</li>
+        <li>Does a partner P&amp;L exist, even roughly? What is inside it today, and is direct field time on partner deals allocated anywhere?</li>
+        <li>Of the commitments inside the Microsoft and Accenture agreements, which are tracked, by whom, and against what?</li>
+        <li>How are direct sellers compensated on partner-fulfilled deals today? Is there a crediting rule or a negotiation?</li>
+        <li>How are FDEs allocated between direct and partner-led deployments, and who decides?</li>
         <li>Is Forge intended to be partner-delivered, and if so what is the partner licence model?</li>
-        <li>Which CRM, and does a partner object exist in it?</li>
-        <li>What does the sovereign-cloud contracting path look like today for Outscale or S3NS?</li>
-        <li>What would make the SVP say this hire was a success at twelve months?</li>
-        <li>Where does this role sit relative to Sales Operations and the Solutions Operations team?</li>
+        <li>What share of bookings transacts through a marketplace, and which one? Are the clouds' sellers paid to position Mistral?</li>
+        <li>What does the sovereign-cloud contracting path look like for Outscale or S3NS: template or bespoke each time?</li>
+        <li>When is the annual plan due, and what does the executive team expect the ecosystem to carry next year?</li>
+        <li>Where does this role sit relative to Sales Operations, Solutions Operations and Finance? Who else would call the partner number theirs?</li>
+        <li>What would make you say this hire was a success at twelve months? <em>(Ask Kamal this directly.)</em></li>
       </ul>
     </section>
 
+    <section id="gaps">
+      <h2><span class="num">12</span>Gaps to fill, and the never-say list</h2>
+      <p class="sub">Only you have these. A constructed specific delivered as a memory is the one unrecoverable mistake.</p>
+
+      <h3>Fill from memory before the first conversation</h3>
+      <ol>
+        <li><strong>The partner organisation's size inside your budget</strong>: headcount, spend, and partner-sourced share of new business, then and later.</li>
+        <li><strong>The Infosys structure</strong>: term of the $50M commitment, how the services transfer was valued, burn-down, what you would change.</li>
+        <li><strong>The OEM crediting story's setup</strong>: which partner, which product, who wanted double credit and why.</li>
+        <li><strong>Marketplace numbers</strong>: share of bookings, CPPO outcome, cycle-time difference.</li>
+        <li><strong>KPMG</strong>: what the alliance was, finance's involvement, one thing that worked or did not.</li>
+        <li><strong>Confluent programme incentive levels</strong> and how they were benchmarked.</li>
+        <li><strong>Which OEM deals carried the year and which were poor</strong>, and the structural reason.</li>
+        <li><strong>The cadence artefacts by name</strong> for the partner business specifically: what Kamal's org reviewed weekly, monthly, quarterly.</li>
+        <li><strong>Team size and geographies</strong> to finish the scale sentence.</li>
+      </ol>
+      <p>Until a specific surfaces: "I'd have to pull the exact figure; the shape was X." That is a strong senior answer.</p>
+
+      <h3>Never say</h3>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Never</th><th>Because</th><th>Instead</th></tr></thead>
+        <tbody>
+          <tr><td>"I built partner ops from zero"</td><td>Not true; Kamal knows it</td><td>"I owned the economics, the plan and the guardrails under the partner leader"</td></tr>
+          <tr><td>"Golden Eagle"</td><td>Internal codename</td><td>"A top-line miss that became the forcing function"</td></tr>
+          <tr><td>A Solex percentage</td><td>Unpublished; a wrong specific reads as reconstructed</td><td>"A resale-grade share on SAP paper with a floor underneath"</td></tr>
+          <tr><td>Attrition of 40%</td><td>It peaked ~31% annualised</td><td>21% to ~31%, volunteered</td></tr>
+          <tr><td>Oracle CDC at $5M</td><td>It was $1.3M</td><td>$1.3M, still a complete write-off</td></tr>
+          <tr><td>Cloud mix 18% to 56% as your result</td><td>Q4'23 was already 47%</td><td>De-attribute yourself; point at what the redesign caused</td></tr>
+          <tr><td>OpenAI's economics as a Confluent customer</td><td>Never disclosed; the interviewer may know more than you</td><td>Nothing. Kamal will know the account; let him raise it</td></tr>
+          <tr><td>Kamal's Confluent programme, described back to him</td><td>He built it</td><td>What you did beside it, and what you would do under him now</td></tr>
+          <tr><td>Untranslated shorthand: SP ARR, CP ACV, E:R, CAR, ZBB</td><td>Tactical dialect</td><td>Sales-attributed consumption ARR net of organic; committed-contract ACV; expense-to-revenue; centralised acquisition org; zero-based self-funded. Keep FDE.</td></tr>
+          <tr><td>Anything about the acquirer or integration friction</td><td>Kamal knows the people; bitterness reads at 10× volume</td><td>"The transformation shipped; the next chapter is integration; I'd rather build"</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Credit the team.</strong> Your team did the costing and built the pipelines; Sarah Everman ran the ESQ analysis; you did not invent sales-attributed ARR, you put it into planning and the operating rhythm. Volunteering the boundary is worth more than the credit.</p>
+    </section>
+
     <section id="gloss">
-      <h2><span class="num">11</span>Glossary</h2>
+      <h2><span class="num">13</span>Glossary</h2>
       <p class="sub">Terms in the order you are likely to hit them.</p>
       <dl class="gloss">
-        <div><dt>GSI / SI</dt><dd>Global (or regional) systems integrator. Consulting and engineering firms that sell and build projects. Accenture, Capgemini, TCS, Sopra Steria.</dd></div>
-        <div><dt>ISV</dt><dd>Independent software vendor. A software company that embeds or integrates Mistral in its product. Snowflake, SAP, Cloudera.</dd></div>
-        <div><dt>MSP</dt><dd>Managed service provider. Runs IT for customers; can host and support Mistral on their behalf.</dd></div>
-        <div><dt>OEM / embedded</dt><dd>Mistral inside someone else's product, sold under their name. Different revenue and support terms.</dd></div>
-        <div><dt>Hyperscaler</dt><dd>Microsoft Azure, AWS, Google Cloud. Also a sales force and a store.</dd></div>
-        <div><dt>Sovereign cloud</dt><dd>A cloud operated under national or sector control so data and operations stay in jurisdiction. Outscale, S3NS, Scaleway.</dd></div>
-        <div><dt>Marketplace</dt><dd>The hyperscaler's store: Azure Marketplace, AWS Marketplace, Google Cloud Marketplace.</dd></div>
-        <div><dt>Private offer</dt><dd>A custom-priced deal transacted through a marketplace.</dd></div>
-        <div><dt>Committed spend</dt><dd>A customer's pre-agreed annual cloud spend. Marketplace purchases count toward it, which makes them easy to approve.</dd></div>
-        <div><dt>Co-sell</dt><dd>Mistral and a partner's sellers working the same account together, with agreed roles and credit.</dd></div>
+        <div><dt>Sourced / influenced / fulfilled</dt><dd>Partner found it / partner helped / partner is on the paper. The req's triad; "fulfilled" is what other companies call "transacted".</dd></div>
+        <div><dt>Partner P&amp;L</dt><dd>Revenue the ecosystem drives against everything it costs, including allocated direct field time. Must tie out with the direct P&amp;L to total GTM cost.</dd></div>
+        <div><dt>Cost per partner-sourced euro</dt><dd>Total partner cost divided by partner-sourced revenue, compared to the direct equivalent. The req's productivity measure.</dd></div>
         <div><dt>Deal registration</dt><dd>A partner formally claiming an opportunity to be protected and paid on it.</dd></div>
-        <div><dt>Rules of engagement (RoE)</dt><dd>The written policy for credit, conflict and escalation between direct sales and partners, and between partners.</dd></div>
-        <div><dt>Sourced / influenced / transacted</dt><dd>Partner found it / partner helped / partner is on the invoice. Three different numbers.</dd></div>
-        <div><dt>Activation</dt><dd>A partner's first real commercial event: registered deal, transaction or joint customer.</dd></div>
-        <div><dt>Tier</dt><dd>A programme level with defined benefits and obligations.</dd></div>
-        <div><dt>Rate card</dt><dd>The published margins, referral fees and rebates by partner type and tier.</dd></div>
-        <div><dt>MDF</dt><dd>Market development funds. Money given to partners for marketing, claimed against proof.</dd></div>
-        <div><dt>SPIF</dt><dd>Short-term cash incentive to partner sellers for a specific behaviour.</dd></div>
-        <div><dt>PRM</dt><dd>Partner relationship management system. The partner portal.</dd></div>
-        <div><dt>Account mapping</dt><dd>Comparing customer lists with a partner to find shared and adjacent accounts.</dd></div>
-        <div><dt>QBR / JBP</dt><dd>Quarterly business review; joint business plan. The cadence documents for a strategic partner.</dd></div>
-        <div><dt>Entitlement</dt><dd>What a customer or partner is licensed to run, where, and how it is checked.</dd></div>
+        <div><dt>Rules of engagement (RoE)</dt><dd>The written policy for credit, conflict and escalation between direct sales and partners.</dd></div>
+        <div><dt>Retire-and-add</dt><dd>Your crediting design: a rep who retires quota on a partner or OEM deal gets matching quota added, so credit exists without double-counting.</dd></div>
+        <div><dt>Net of organic</dt><dd>Credit measured as an account's growth minus what accounts of its cohort do with no intervention.</dd></div>
+        <div><dt>Transfer price vs net share</dt><dd>Fixed price per unit to the partner (they fund discounts) versus a percentage of what they net (you absorb their discounting).</dd></div>
+        <div><dt>Floor / minimum royalty</dt><dd>The minimum the partner must pay or the threshold at which they engage; binds when volume disappoints.</dd></div>
+        <div><dt>Bundle-discount allocation</dt><dd>How a discount negotiated on a whole deal is spread across line items. Worth more than points of headline share.</dd></div>
+        <div><dt>Capacity commitment</dt><dd>Pre-agreed spend or compute. Moves cash, not revenue, until consumed.</dd></div>
+        <div><dt>Committed-spend burn-down</dt><dd>Marketplace purchases count against a customer's pre-agreed cloud spend, which is why they close faster.</dd></div>
+        <div><dt>Private offer / CPPO</dt><dd>A custom-priced deal through a marketplace; CPPO is AWS's version with a consulting partner or reseller in the middle.</dd></div>
+        <div><dt>Co-sell</dt><dd>Mistral and a partner's sellers working the same account with agreed roles and credit.</dd></div>
+        <div><dt>Rate card</dt><dd>Published margins, referral fees and rebates by partner type and tier.</dd></div>
+        <div><dt>MDF / SPIF</dt><dd>Market development funds claimed against proof; short-term cash incentives to partner sellers.</dd></div>
+        <div><dt>Cohort gate</dt><dd>A consumption threshold ($20K at Confluent) that separates a real workload from an experiment.</dd></div>
+        <div><dt>GSI / RSI / VAR / MSP</dt><dd>Global integrator (services), regional integrator (needs real margin), value-added reseller (margin), managed service provider (operates it).</dd></div>
+        <div><dt>OEM-in / OEM-out</dt><dd>You resell their technology (Oracle CDC) versus they resell yours (Solex). The economics invert.</dd></div>
         <div><dt>Partner-served deployment</dt><dd>Mistral's term: the product delivered through a cloud provider or reseller who bills and supports the customer.</dd></div>
-        <div><dt>Forward-deployed</dt><dd>Mistral engineers embedded with a customer to deploy and tailor the product. The direct motion partners are meant to scale.</dd></div>
+        <div><dt>Forward-deployed</dt><dd>Mistral engineers embedded with a customer. The direct motion partners are meant to scale.</dd></div>
         <div><dt>Open-weight</dt><dd>Model weights are published; anyone can run them. Mistral monetises what surrounds the weights.</dd></div>
-        <div><dt>Neocloud</dt><dd>A newer cloud built for AI workloads. Mistral's term for itself after Mistral Compute.</dd></div>
-        <div><dt>Forge / Studio / Compute</dt><dd>Mistral's custom-model builder / application platform / European AI cloud.</dd></div>
+        <div><dt>Forge / Studio / Compute</dt><dd>Custom-model builder / application platform / European AI cloud.</dd></div>
       </dl>
     </section>
 
     <section id="sources">
-      <h2><span class="num">12</span>Sources</h2>
-      <p class="sub">What the Mistral-specific claims rest on. Figures are as reported by these outlets, not audited.</p>
+      <h2><span class="num">14</span>Sources</h2>
+      <p class="sub">What this rests on. Mistral figures are as reported, not audited.</p>
       <ul class="sources">
-        <li><a href="https://mistral.ai/partners/">Mistral partners page</a>: strategic, ecosystem and integration partner lists.</li>
-        <li><a href="https://legal.mistral.ai/terms/partner-served-deployment-terms/">Mistral partner-served deployment terms</a>.</li>
-        <li><a href="https://news.microsoft.com/source/2026/07/21/microsoft-and-mistral-expand-strategic-partnership-to-give-enterprises-and-regulated-industries-frontier-ai-they-can-control/">Microsoft, 21 July 2026</a>: expanded partnership, deployment modes, credits and funded POCs.</li>
-        <li><a href="https://newsroom.accenture.com/news/2026/accenture-and-mistral-ai-accelerate-enterprise-reinvention-with-scalable-ai-that-delivers-strategic-autonomy-for-customers">Accenture, February 2026</a>: training and certification, 784,000 staff, Studio and Compute.</li>
-        <li><a href="https://www.tcs.com/who-we-are/newsroom/press-release/tcs-partners-mistral-first-global-systems-integrator-enterprises-worldwide">TCS, 28 May 2026</a>: first GSI on Mistral Forge.</li>
-        <li><a href="https://siliconangle.com/2026/09/09/cloudera-brings-mistral-ais-frontier-models-into-its-secure-hybrid-data-environments/">SiliconANGLE, 9 Sept 2026</a>: Cloudera nine-figure partnership; Brar quote.</li>
-        <li><a href="https://www.crnasia.com/india/news/2026/mistral-ai-hires-confluent-s-kamal-brar-as-svp-to-lead-partner-business">CRN Asia</a>: Kamal Brar hire and remit.</li>
-        <li><a href="https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/">TechCrunch, 4 July 2026</a>: products, leadership, forward-deployed model, customers.</li>
-        <li><a href="https://techbriefly.com/2026/09/08/mistral-ai-raises-3-billion-samsung-led-funding-round/">Series D coverage, 8 Sept 2026</a>; <a href="https://sacra.com/c/mistral/">Sacra</a> and <a href="https://getlatka.com/companies/mistral-ai">Latka</a> for ARR estimates.</li>
-        <li><a href="https://www.eweek.com/news/mistral-forge-custom-enterprise-ai-models/">eWeek on Mistral Forge</a>; <a href="https://businesswire.com/news/home/20251125824551/en/A-New-Era-of-Sovereign-AI-Dassault-Systmes-and-Mistral-AI-Deepen-Their-Partnership">Dassault / Outscale, Nov 2025</a>.</li>
-        <li><a href="https://jobs.a16z.com/jobs/mistral-ai">Mistral open roles via the a16z board</a> and the Ashby job board: Partner Manager GSI (London, Paris, Munich), Solution Operations Manager. <a href="https://jobs.lever.co/mistral/ca22a1ac-c87e-4463-914a-6753ca79318c">Product Manager, Cloud Partnerships</a>; <a href="https://jobs.lever.co/mistral/29aa0964-a859-464b-832c-a12a2154b501">Partner Manager SI EMEA</a>; Head of Partner Marketing via Glassdoor.</li>
+        <li>The posted req: <em>Head of Partner Strategy &amp; Operations, Partner &amp; Technology Group</em> (your Downloads folder, 9 Sept 2026). Quoted verbatim in section 04.</li>
+        <li>Your résumé (2026) and the OpenAI interview corpus: the super document (8 Aug), the Kapase channel chapter, the Faggioli, Gaylor and Subramanian notes, the Principle · Motion · Detail dossier, and the Shan Fernando call captures. All Confluent, Palo Alto Networks and Symantec facts come from these.</li>
+        <li><a href="https://mistral.ai/partners/">Mistral partners page</a>; <a href="https://legal.mistral.ai/terms/partner-served-deployment-terms/">partner-served deployment terms</a>.</li>
+        <li><a href="https://news.microsoft.com/source/2026/07/21/microsoft-and-mistral-expand-strategic-partnership-to-give-enterprises-and-regulated-industries-frontier-ai-they-can-control/">Microsoft, 21 July 2026</a>; <a href="https://newsroom.accenture.com/news/2026/accenture-and-mistral-ai-accelerate-enterprise-reinvention-with-scalable-ai-that-delivers-strategic-autonomy-for-customers">Accenture, February 2026</a>; <a href="https://www.tcs.com/who-we-are/newsroom/press-release/tcs-partners-mistral-first-global-systems-integrator-enterprises-worldwide">TCS, 28 May 2026</a>; <a href="https://siliconangle.com/2026/09/09/cloudera-brings-mistral-ais-frontier-models-into-its-secure-hybrid-data-environments/">SiliconANGLE, 9 Sept 2026</a> on Cloudera.</li>
+        <li><a href="https://www.crnasia.com/india/news/2026/mistral-ai-hires-confluent-s-kamal-brar-as-svp-to-lead-partner-business">CRN Asia</a> on Kamal Brar; <a href="https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/">TechCrunch, 4 July 2026</a>; <a href="https://techbriefly.com/2026/09/08/mistral-ai-raises-3-billion-samsung-led-funding-round/">Series D coverage</a>; <a href="https://sacra.com/c/mistral/">Sacra</a> and <a href="https://getlatka.com/companies/mistral-ai">Latka</a> for ARR estimates; <a href="https://www.eweek.com/news/mistral-forge-custom-enterprise-ai-models/">eWeek on Forge</a>; <a href="https://businesswire.com/news/home/20251125824551/en/A-New-Era-of-Sovereign-AI-Dassault-Systmes-and-Mistral-AI-Deepen-Their-Partnership">Dassault / Outscale</a>.</li>
+        <li>Mistral open roles via <a href="https://jobs.a16z.com/jobs/mistral-ai">the a16z board</a> and Lever: <a href="https://jobs.lever.co/mistral/ca22a1ac-c87e-4463-914a-6753ca79318c">Product Manager, Cloud Partnerships</a>; <a href="https://jobs.lever.co/mistral/29aa0964-a859-464b-832c-a12a2154b501">Partner Manager SI EMEA</a>.</li>
       </ul>
     </section>
   </main>
@@ -711,7 +891,7 @@
 
 <script>
   (function () {
-    var KEY = 'mistral-partner-ops-stories';
+    var KEY = 'mistral-partner-ops-stories-v2';
     var state = {};
     try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
     var shapes = document.querySelectorAll('.shape');
@@ -730,5 +910,6 @@
     }
   })();
 </script>
+
 </body>
 </html>
